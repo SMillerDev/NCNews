@@ -14,14 +14,20 @@ import OAuthSwift
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    var networkManager: NetworkManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        OAuthSwift.handle(url: url)
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
+        if url.absoluteString.starts(with: "eu.seanmolenaar.ncnews://oauth-callback/") {
+            OAuthSwift.handle(url: url)
+        } else if url.absoluteString.starts(with: "eu.seanmolenaar.ncnews://oauth/") {
+            print(url.lastPathComponent)
+            UserDefaults.standard.set(url.lastPathComponent, forKey: "NCclientSecret")
+        }
         return true
     }
 
@@ -44,14 +50,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
 
     // MARK: - Split view
 
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
         guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
         if topAsDetailController.detailItem == nil {
@@ -70,11 +74,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "NCNews")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -98,7 +99,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 try context.save()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                // fatalError() causes the application to generate a crash log and terminate.
+                // You should not use this function in a shipping application, although
+                // it may be useful during development.
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
@@ -106,4 +109,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
 
 }
-

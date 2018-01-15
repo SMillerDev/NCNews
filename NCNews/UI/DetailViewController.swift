@@ -12,12 +12,11 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
-
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
             if let label = detailDescriptionLabel {
-                label.text = detail.timestamp!.description
+                label.text = detail.body
             }
         }
     }
@@ -33,13 +32,11 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    var detailItem: Event? {
+    var detailItem: FeedItem? {
         didSet {
             // Update the view.
             configureView()
         }
     }
 
-
 }
-

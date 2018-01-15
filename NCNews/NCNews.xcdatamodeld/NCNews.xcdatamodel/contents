@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Event" representedClassName="Event" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C205" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Feed" representedClassName=".Feed">
+        <attribute name="added" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <attribute name="faviconLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ordering" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="pinned" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unreadCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="folder" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Folder" inverseName="feeds" inverseEntity="Folder" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FeedItem" inverseName="feed" inverseEntity="FeedItem" syncable="YES"/>
+        <userInfo>
+            <entry key="sync.isPrimaryKey" value="true"/>
+        </userInfo>
+    </entity>
+    <entity name="FeedItem" representedClassName=".FeedItem" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentHash" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fingerprint" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guidHash" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastModified" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="pubDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="rtl" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="starred" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unread" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="updateDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Feed" inverseName="items" inverseEntity="Feed" syncable="YES"/>
+    </entity>
+    <entity name="Folder" representedClassName=".Folder" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="feeds" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Feed" inverseName="folder" inverseEntity="Feed" syncable="YES"/>
+        <userInfo>
+            <entry key="sync.isPrimaryKey" value="true"/>
+        </userInfo>
     </entity>
     <elements>
-        <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
+        <element name="Feed" positionX="261" positionY="189" width="128" height="210"/>
+        <element name="Folder" positionX="261" positionY="261" width="128" height="90"/>
+        <element name="FeedItem" positionX="279" positionY="279" width="128" height="285"/>
     </elements>
 </model>

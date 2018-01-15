@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1406C4EA200A87A9008FAD6D /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406C4E4200A87A9008FAD6D /* FeedItem.swift */; };
+		1406C4EB200A87A9008FAD6D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406C4E5200A87A9008FAD6D /* Feed.swift */; };
+		1406C4EE200A87A9008FAD6D /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406C4E8200A87A9008FAD6D /* Folder.swift */; };
 		149473B92006945B00BB93E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149473B82006945B00BB93E4 /* AppDelegate.swift */; };
 		149473BC2006945B00BB93E4 /* NCNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 149473BA2006945B00BB93E4 /* NCNews.xcdatamodeld */; };
 		149473BE2006945B00BB93E4 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149473BD2006945B00BB93E4 /* MasterViewController.swift */; };
@@ -17,6 +20,15 @@
 		149473D32006945B00BB93E4 /* NCNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149473D22006945B00BB93E4 /* NCNewsTests.swift */; };
 		149473DE2006945B00BB93E4 /* NCNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149473DD2006945B00BB93E4 /* NCNewsUITests.swift */; };
 		14F268A1200699C50057C660 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F268A0200699C50057C660 /* LoginViewController.swift */; };
+		14F268A420078C130057C660 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F268A320078C130057C660 /* NetworkManager.swift */; };
+		14FF37E0200A2B7B00443AB1 /* NetworkConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF37DF200A2B7B00443AB1 /* NetworkConvenience.swift */; };
+		14FF37E2200A2BD900443AB1 /* AccessTokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF37E1200A2BD900443AB1 /* AccessTokenAdapter.swift */; };
+		14FF37E5200A3EEC00443AB1 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF37E4200A3EEC00443AB1 /* KeychainPasswordItem.swift */; };
+		14FF37E7200A3F0F00443AB1 /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF37E6200A3F0E00443AB1 /* KeychainConfiguration.swift */; };
+		14FF37EA200A41EE00443AB1 /* NextCloudAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF37E9200A41EE00443AB1 /* NextCloudAPIAdapter.swift */; };
+		14FF37EC200A456400443AB1 /* OauthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF37EB200A456400443AB1 /* OauthController.swift */; };
+		14FF37EE200A45F700443AB1 /* BasicAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF37ED200A45F700443AB1 /* BasicAuthController.swift */; };
+		14FF37F0200A5D9800443AB1 /* BasicAuthAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF37EF200A5D9800443AB1 /* BasicAuthAdapter.swift */; };
 		2692E1CFCFE08D77C2C3906D /* Pods_NCNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75176575875F12669E85E527 /* Pods_NCNews.framework */; };
 		704224654F35DE5214CAC7E8 /* Pods_NCNewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A312B2BAFEF0E170F4016576 /* Pods_NCNewsUITests.framework */; };
 		AEFE5565BBD90191ED9A68BD /* Pods_NCNewsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1F17628A23F3C2C434991B /* Pods_NCNewsTests.framework */; };
@@ -41,6 +53,9 @@
 
 /* Begin PBXFileReference section */
 		10D1D51E0C56EB1EF273DCAC /* Pods-NCNewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCNewsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NCNewsTests/Pods-NCNewsTests.release.xcconfig"; sourceTree = "<group>"; };
+		1406C4E4200A87A9008FAD6D /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		1406C4E5200A87A9008FAD6D /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		1406C4E8200A87A9008FAD6D /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		149473B52006945B00BB93E4 /* NCNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NCNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		149473B82006945B00BB93E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		149473BB2006945B00BB93E4 /* NCNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NCNews.xcdatamodel; sourceTree = "<group>"; };
@@ -57,6 +72,16 @@
 		149473DD2006945B00BB93E4 /* NCNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCNewsUITests.swift; sourceTree = "<group>"; };
 		149473DF2006945B00BB93E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14F268A0200699C50057C660 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		14F268A320078C130057C660 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		14FF37DF200A2B7B00443AB1 /* NetworkConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConvenience.swift; sourceTree = "<group>"; };
+		14FF37E1200A2BD900443AB1 /* AccessTokenAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenAdapter.swift; sourceTree = "<group>"; };
+		14FF37E3200A3E7B00443AB1 /* NCNews.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NCNews.entitlements; sourceTree = "<group>"; };
+		14FF37E4200A3EEC00443AB1 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		14FF37E6200A3F0E00443AB1 /* KeychainConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
+		14FF37E9200A41EE00443AB1 /* NextCloudAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextCloudAPIAdapter.swift; sourceTree = "<group>"; };
+		14FF37EB200A456400443AB1 /* OauthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthController.swift; sourceTree = "<group>"; };
+		14FF37ED200A45F700443AB1 /* BasicAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthController.swift; sourceTree = "<group>"; };
+		14FF37EF200A5D9800443AB1 /* BasicAuthAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthAdapter.swift; sourceTree = "<group>"; };
 		2DB9D379A81C2AB17F321B82 /* Pods-NCNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NCNewsTests/Pods-NCNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E5307B56AF0FFC92870C0AC /* Pods-NCNewsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCNewsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NCNewsUITests/Pods-NCNewsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		75176575875F12669E85E527 /* Pods_NCNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NCNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +120,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1406C4E3200A87A9008FAD6D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1406C4E4200A87A9008FAD6D /* FeedItem.swift */,
+				1406C4E5200A87A9008FAD6D /* Feed.swift */,
+				1406C4E8200A87A9008FAD6D /* Folder.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		149473AC2006945B00BB93E4 = {
 			isa = PBXGroup;
 			children = (
@@ -120,15 +155,17 @@
 		149473B72006945B00BB93E4 /* NCNews */ = {
 			isa = PBXGroup;
 			children = (
+				1406C4E3200A87A9008FAD6D /* CoreData */,
+				14FF37E3200A3E7B00443AB1 /* NCNews.entitlements */,
 				149473B82006945B00BB93E4 /* AppDelegate.swift */,
-				149473BD2006945B00BB93E4 /* MasterViewController.swift */,
-				149473BF2006945B00BB93E4 /* DetailViewController.swift */,
-				149473C12006945B00BB93E4 /* Main.storyboard */,
-				14F268A0200699C50057C660 /* LoginViewController.swift */,
+				14FF37E8200A41C400443AB1 /* Network */,
+				14F268A220078BE60057C660 /* UI */,
 				149473C42006945B00BB93E4 /* Assets.xcassets */,
 				149473C62006945B00BB93E4 /* LaunchScreen.storyboard */,
 				149473C92006945B00BB93E4 /* Info.plist */,
 				149473BA2006945B00BB93E4 /* NCNews.xcdatamodeld */,
+				14FF37E6200A3F0E00443AB1 /* KeychainConfiguration.swift */,
+				14FF37E4200A3EEC00443AB1 /* KeychainPasswordItem.swift */,
 			);
 			path = NCNews;
 			sourceTree = "<group>";
@@ -149,6 +186,31 @@
 				149473DF2006945B00BB93E4 /* Info.plist */,
 			);
 			path = NCNewsUITests;
+			sourceTree = "<group>";
+		};
+		14F268A220078BE60057C660 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				149473BD2006945B00BB93E4 /* MasterViewController.swift */,
+				149473BF2006945B00BB93E4 /* DetailViewController.swift */,
+				149473C12006945B00BB93E4 /* Main.storyboard */,
+				14F268A0200699C50057C660 /* LoginViewController.swift */,
+				14FF37ED200A45F700443AB1 /* BasicAuthController.swift */,
+				14FF37EB200A456400443AB1 /* OauthController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		14FF37E8200A41C400443AB1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				14F268A320078C130057C660 /* NetworkManager.swift */,
+				14FF37E1200A2BD900443AB1 /* AccessTokenAdapter.swift */,
+				14FF37EF200A5D9800443AB1 /* BasicAuthAdapter.swift */,
+				14FF37E9200A41EE00443AB1 /* NextCloudAPIAdapter.swift */,
+				14FF37DF200A2B7B00443AB1 /* NetworkConvenience.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		BF09DEC3BFA4ECE22B412707 /* Frameworks */ = {
@@ -182,6 +244,7 @@
 			buildConfigurationList = 149473E22006945B00BB93E4 /* Build configuration list for PBXNativeTarget "NCNews" */;
 			buildPhases = (
 				D0FC741874B039AAD2438BA7 /* [CP] Check Pods Manifest.lock */,
+				1406C4F0200A87D0008FAD6D /* ShellScript */,
 				149473B12006945B00BB93E4 /* Sources */,
 				149473B22006945B00BB93E4 /* Frameworks */,
 				149473B32006945B00BB93E4 /* Resources */,
@@ -252,6 +315,14 @@
 					149473B42006945B00BB93E4 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+						};
 					};
 					149473CD2006945B00BB93E4 = {
 						CreatedOnToolsVersion = 9.2;
@@ -361,6 +432,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1406C4F0200A87D0008FAD6D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
 		4B858A75E5B300766311DD45 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -401,13 +485,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NCNews/Pods-NCNews-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/KOTree/KOTree.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Sync/Sync.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KOTree.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sync.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -469,11 +555,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F268A420078C130057C660 /* NetworkManager.swift in Sources */,
+				14FF37EC200A456400443AB1 /* OauthController.swift in Sources */,
 				149473B92006945B00BB93E4 /* AppDelegate.swift in Sources */,
+				14FF37E0200A2B7B00443AB1 /* NetworkConvenience.swift in Sources */,
 				149473BC2006945B00BB93E4 /* NCNews.xcdatamodeld in Sources */,
+				14FF37E7200A3F0F00443AB1 /* KeychainConfiguration.swift in Sources */,
 				149473BE2006945B00BB93E4 /* MasterViewController.swift in Sources */,
+				1406C4EB200A87A9008FAD6D /* Feed.swift in Sources */,
+				14FF37E5200A3EEC00443AB1 /* KeychainPasswordItem.swift in Sources */,
+				14FF37F0200A5D9800443AB1 /* BasicAuthAdapter.swift in Sources */,
+				1406C4EA200A87A9008FAD6D /* FeedItem.swift in Sources */,
 				14F268A1200699C50057C660 /* LoginViewController.swift in Sources */,
+				14FF37EA200A41EE00443AB1 /* NextCloudAPIAdapter.swift in Sources */,
+				14FF37EE200A45F700443AB1 /* BasicAuthController.swift in Sources */,
+				1406C4EE200A87A9008FAD6D /* Folder.swift in Sources */,
 				149473C02006945B00BB93E4 /* DetailViewController.swift in Sources */,
+				14FF37E2200A2BD900443AB1 /* AccessTokenAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +738,7 @@
 			baseConfigurationReference = ED491D43851C732A514D358A /* Pods-NCNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NCNews/NCNews.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6S5V56E82;
 				INFOPLIST_FILE = NCNews/Info.plist;
@@ -657,6 +756,7 @@
 			baseConfigurationReference = 929F5B74F114F0788F2D0546 /* Pods-NCNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NCNews/NCNews.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6S5V56E82;
 				INFOPLIST_FILE = NCNews/Info.plist;
