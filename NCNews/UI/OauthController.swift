@@ -25,8 +25,8 @@ extension LoginViewController {
             state: "NEXTCLOUD",
             success: { credential, _, _ in
                 self.delegate?.networkManager = NetworkManager(url, token: credential.oauthToken)
-                UserDefaults.standard.set(true, forKey: "hasLoginKey")
-                self.delegate?.networkManager?.sync()
+                UserDefaults.standard.set(true, forKey: DefaultConstants.didLogin)
+                self.delegate?.networkManager?.initial_sync()
                 self.performSegue(withIdentifier: "logginSegue", sender: nil)
         },
             failure: { error in

@@ -19,6 +19,8 @@ class FeedItem: NSManagedObject {
     @NSManaged public var guid: String?
     @NSManaged public var guidHash: String?
     @NSManaged public var url: String?
+    @NSManaged public var lead: String?
+    @NSManaged public var image: String?
     @NSManaged public var title: String?
     @NSManaged public var author: String?
     @NSManaged public var pubDate: NSDate?

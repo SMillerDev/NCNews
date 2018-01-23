@@ -9,7 +9,17 @@
 import UIKit
 
 extension LoginViewController {
-    func basicAuth(_ url: URL) {
+    func basicAuth(_ url: URL, user: String? = nil) {
+        if let userName = user {
+            do {
+                let passwordItem = self.keychain(account: userName)
+                let keychainPassword = try passwordItem.readPassword()
+                self.auth(url, user: userName, password: keychainPassword)
+            } catch {
+                fatalError("Error reading password from keychain - \(error)")
+            }
+            return
+        }
         guard let newAccountName = userField.text,
             let newPassword = passwordField.text,
             !newAccountName.isEmpty && !newPassword.isEmpty && segmentControl.selectedSegmentIndex == 0 else {
@@ -20,26 +30,30 @@ extension LoginViewController {
         userField.resignFirstResponder()
         passwordField.resignFirstResponder()
 
-        let hasLoginKey = UserDefaults.standard.bool(forKey: "hasLoginKey")
+        let hasLoginKey = UserDefaults.standard.bool(forKey: DefaultConstants.didLogin)
         if !hasLoginKey {
-            UserDefaults.standard.setValue(userField.text, forKey: "NCusername")
+            UserDefaults.standard.setValue(userField.text, forKey: DefaultConstants.username)
         }
 
         do {
-            // This is a new account, create a new keychain item with the account name.
-            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
-                                                    account: newAccountName,
-                                                    accessGroup: KeychainConfiguration.accessGroup)
-            // Save the password for the new item.
+            let passwordItem = self.keychain(account: newAccountName)
             try passwordItem.savePassword(newPassword)
         } catch {
             fatalError("Error updating keychain - \(error)")
         }
+        self.auth(url, user: newAccountName, password: newPassword)
+    }
 
-        // 6
-        UserDefaults.standard.set(true, forKey: "hasLoginKey")
-        self.delegate?.networkManager = NetworkManager(url, user: newAccountName, pass: newPassword)
-        self.delegate?.networkManager?.sync()
+    internal func auth(_ url: URL, user: String, password: String) {
+        UserDefaults.standard.set(true, forKey: DefaultConstants.didLogin)
+        self.delegate?.networkManager = NetworkManager(url, user: user, pass: password)
+        self.delegate?.networkManager?.initial_sync()
         self.performSegue(withIdentifier: "logginSegue", sender: nil)
+    }
+
+    internal func keychain(account: String) -> KeychainPasswordItem {
+        return KeychainPasswordItem(service: KeychainConfiguration.serviceName,
+                                    account: account,
+                                accessGroup: KeychainConfiguration.accessGroup)
     }
 }

@@ -14,9 +14,10 @@ class BasicAuthAdapter: NextCloudAPIAdapter {
     private let auth: String
 
     init(user: String, password: String) {
-        let plainString = "\(user):\(password)" as String
-        let plainData = plainString.data(using: .utf8)
-        auth = plainData!.base64EncodedString(options: .init(rawValue: 0))
+        guard let hash = "\(user):\(password)".data(using: .isoLatin1)?.base64EncodedString() else {
+            fatalError("Failed to generate hash")
+        }
+        auth = hash
     }
 
     override func adapt(_ urlRequest: URLRequest) throws -> URLRequest {

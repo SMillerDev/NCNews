@@ -1,0 +1,6 @@
+[submodule "readable"]
+	path = readable
+	url = ./ext/readable
+[submodule "ext/readable"]
+	path = ext/readable
+	url = git@github.com:JanX2/readable.git

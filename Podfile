@@ -8,8 +8,10 @@ target 'NCNews' do
   # Pods for NCNews
   pod 'OAuthSwift', '~> 1.2'
   pod 'Alamofire', '~> 4.6'
+  pod 'AlamofireImage', '~> 3.3'
   pod 'SwiftLint'
   pod 'Sync', '~> 4'
+  pod 'DATASource', '~> 7.0'
   target 'NCNewsTests' do
     inherit! :search_paths
     # Pods for testing

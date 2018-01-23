@@ -10,15 +10,24 @@
 		1406C4EA200A87A9008FAD6D /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406C4E4200A87A9008FAD6D /* FeedItem.swift */; };
 		1406C4EB200A87A9008FAD6D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406C4E5200A87A9008FAD6D /* Feed.swift */; };
 		1406C4EE200A87A9008FAD6D /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406C4E8200A87A9008FAD6D /* Folder.swift */; };
+		144433E4201753FF001E82EC /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 144433E3201753FF001E82EC /* libxml2.2.tbd */; };
+		144433E62017540E001E82EC /* libicucore.A.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 144433E52017540E001E82EC /* libicucore.A.tbd */; };
+		149022C1200E873700D43050 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149022C0200E873700D43050 /* FeedViewController.swift */; };
+		149022C3200E87FE00D43050 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149022C2200E87FE00D43050 /* ItemViewController.swift */; };
 		149473B92006945B00BB93E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149473B82006945B00BB93E4 /* AppDelegate.swift */; };
 		149473BC2006945B00BB93E4 /* NCNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 149473BA2006945B00BB93E4 /* NCNews.xcdatamodeld */; };
-		149473BE2006945B00BB93E4 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149473BD2006945B00BB93E4 /* MasterViewController.swift */; };
+		149473BE2006945B00BB93E4 /* FolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149473BD2006945B00BB93E4 /* FolderViewController.swift */; };
 		149473C02006945B00BB93E4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149473BF2006945B00BB93E4 /* DetailViewController.swift */; };
 		149473C32006945B00BB93E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149473C12006945B00BB93E4 /* Main.storyboard */; };
 		149473C52006945B00BB93E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 149473C42006945B00BB93E4 /* Assets.xcassets */; };
 		149473C82006945B00BB93E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149473C62006945B00BB93E4 /* LaunchScreen.storyboard */; };
 		149473D32006945B00BB93E4 /* NCNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149473D22006945B00BB93E4 /* NCNewsTests.swift */; };
 		149473DE2006945B00BB93E4 /* NCNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149473DD2006945B00BB93E4 /* NCNewsUITests.swift */; };
+		14EA99252015D7E900567CB0 /* readable.c in Sources */ = {isa = PBXBuildFile; fileRef = 14EA99232015D7E800567CB0 /* readable.c */; };
+		14F0BA8D2010EFF500E79715 /* NCColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F0BA8C2010EFF500E79715 /* NCColor.swift */; };
+		14F0BA8F2011364A00E79715 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F0BA8E2011364A00E79715 /* SettingsViewController.swift */; };
+		14F0BA922011384000E79715 /* DefaultConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F0BA912011384000E79715 /* DefaultConstants.swift */; };
+		14F0BA992011E03A00E79715 /* ImageFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F0BA982011E03A00E79715 /* ImageFinder.swift */; };
 		14F268A1200699C50057C660 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F268A0200699C50057C660 /* LoginViewController.swift */; };
 		14F268A420078C130057C660 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F268A320078C130057C660 /* NetworkManager.swift */; };
 		14FF37E0200A2B7B00443AB1 /* NetworkConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF37DF200A2B7B00443AB1 /* NetworkConvenience.swift */; };
@@ -56,10 +65,14 @@
 		1406C4E4200A87A9008FAD6D /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		1406C4E5200A87A9008FAD6D /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		1406C4E8200A87A9008FAD6D /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		144433E3201753FF001E82EC /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		144433E52017540E001E82EC /* libicucore.A.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.A.tbd; path = usr/lib/libicucore.A.tbd; sourceTree = SDKROOT; };
+		149022C0200E873700D43050 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		149022C2200E87FE00D43050 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		149473B52006945B00BB93E4 /* NCNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NCNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		149473B82006945B00BB93E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		149473BB2006945B00BB93E4 /* NCNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NCNews.xcdatamodel; sourceTree = "<group>"; };
-		149473BD2006945B00BB93E4 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		149473BD2006945B00BB93E4 /* FolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewController.swift; sourceTree = "<group>"; };
 		149473BF2006945B00BB93E4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		149473C22006945B00BB93E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		149473C42006945B00BB93E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +84,13 @@
 		149473D92006945B00BB93E4 /* NCNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NCNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		149473DD2006945B00BB93E4 /* NCNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCNewsUITests.swift; sourceTree = "<group>"; };
 		149473DF2006945B00BB93E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14EA99232015D7E800567CB0 /* readable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = readable.c; sourceTree = "<group>"; };
+		14EA99242015D7E800567CB0 /* readable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = readable.h; sourceTree = "<group>"; };
+		14F0BA8C2010EFF500E79715 /* NCColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCColor.swift; sourceTree = "<group>"; };
+		14F0BA8E2011364A00E79715 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		14F0BA912011384000E79715 /* DefaultConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConstants.swift; sourceTree = "<group>"; };
+		14F0BA932011DDA000E79715 /* NCNews-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NCNews-Bridging-Header.h"; sourceTree = "<group>"; };
+		14F0BA982011E03A00E79715 /* ImageFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFinder.swift; sourceTree = "<group>"; };
 		14F268A0200699C50057C660 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		14F268A320078C130057C660 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		14FF37DF200A2B7B00443AB1 /* NetworkConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConvenience.swift; sourceTree = "<group>"; };
@@ -83,6 +103,7 @@
 		14FF37ED200A45F700443AB1 /* BasicAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthController.swift; sourceTree = "<group>"; };
 		14FF37EF200A5D9800443AB1 /* BasicAuthAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthAdapter.swift; sourceTree = "<group>"; };
 		2DB9D379A81C2AB17F321B82 /* Pods-NCNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NCNewsTests/Pods-NCNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		35CDFD36DCB02D75B242CB8B /* Bladefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Bladefile; sourceTree = "<group>"; };
 		3E5307B56AF0FFC92870C0AC /* Pods-NCNewsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCNewsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NCNewsUITests/Pods-NCNewsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		75176575875F12669E85E527 /* Pods_NCNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NCNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C69FBA8AF2EF401E3BECE73 /* Pods-NCNewsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCNewsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NCNewsUITests/Pods-NCNewsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144433E62017540E001E82EC /* libicucore.A.tbd in Frameworks */,
+				144433E4201753FF001E82EC /* libxml2.2.tbd in Frameworks */,
 				2692E1CFCFE08D77C2C3906D /* Pods_NCNews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +162,8 @@
 				149473B62006945B00BB93E4 /* Products */,
 				D22D2394E8FDF6077F15A59A /* Pods */,
 				BF09DEC3BFA4ECE22B412707 /* Frameworks */,
+				35CDFD36DCB02D75B242CB8B /* Bladefile */,
+				14F0BA932011DDA000E79715 /* NCNews-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,6 +180,8 @@
 		149473B72006945B00BB93E4 /* NCNews */ = {
 			isa = PBXGroup;
 			children = (
+				14EA98FC2015D5BF00567CB0 /* readable */,
+				14F0BA972011E01F00E79715 /* Readability */,
 				1406C4E3200A87A9008FAD6D /* CoreData */,
 				14FF37E3200A3E7B00443AB1 /* NCNews.entitlements */,
 				149473B82006945B00BB93E4 /* AppDelegate.swift */,
@@ -164,8 +191,7 @@
 				149473C62006945B00BB93E4 /* LaunchScreen.storyboard */,
 				149473C92006945B00BB93E4 /* Info.plist */,
 				149473BA2006945B00BB93E4 /* NCNews.xcdatamodeld */,
-				14FF37E6200A3F0E00443AB1 /* KeychainConfiguration.swift */,
-				14FF37E4200A3EEC00443AB1 /* KeychainPasswordItem.swift */,
+				14F0BA902011382000E79715 /* Core */,
 			);
 			path = NCNews;
 			sourceTree = "<group>";
@@ -188,15 +214,46 @@
 			path = NCNewsUITests;
 			sourceTree = "<group>";
 		};
+		14EA98FC2015D5BF00567CB0 /* readable */ = {
+			isa = PBXGroup;
+			children = (
+				14EA99232015D7E800567CB0 /* readable.c */,
+				14EA99242015D7E800567CB0 /* readable.h */,
+			);
+			path = readable;
+			sourceTree = "<group>";
+		};
+		14F0BA902011382000E79715 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				14FF37E6200A3F0E00443AB1 /* KeychainConfiguration.swift */,
+				14FF37E4200A3EEC00443AB1 /* KeychainPasswordItem.swift */,
+				14F0BA912011384000E79715 /* DefaultConstants.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		14F0BA972011E01F00E79715 /* Readability */ = {
+			isa = PBXGroup;
+			children = (
+				14F0BA982011E03A00E79715 /* ImageFinder.swift */,
+			);
+			path = Readability;
+			sourceTree = "<group>";
+		};
 		14F268A220078BE60057C660 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				149473BD2006945B00BB93E4 /* MasterViewController.swift */,
+				149473BD2006945B00BB93E4 /* FolderViewController.swift */,
+				149022C0200E873700D43050 /* FeedViewController.swift */,
+				149022C2200E87FE00D43050 /* ItemViewController.swift */,
 				149473BF2006945B00BB93E4 /* DetailViewController.swift */,
 				149473C12006945B00BB93E4 /* Main.storyboard */,
 				14F268A0200699C50057C660 /* LoginViewController.swift */,
 				14FF37ED200A45F700443AB1 /* BasicAuthController.swift */,
 				14FF37EB200A456400443AB1 /* OauthController.swift */,
+				14F0BA8C2010EFF500E79715 /* NCColor.swift */,
+				14F0BA8E2011364A00E79715 /* SettingsViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -216,6 +273,8 @@
 		BF09DEC3BFA4ECE22B412707 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				144433E52017540E001E82EC /* libicucore.A.tbd */,
+				144433E3201753FF001E82EC /* libxml2.2.tbd */,
 				75176575875F12669E85E527 /* Pods_NCNews.framework */,
 				CE1F17628A23F3C2C434991B /* Pods_NCNewsTests.framework */,
 				A312B2BAFEF0E170F4016576 /* Pods_NCNewsUITests.framework */,
@@ -314,6 +373,7 @@
 				TargetAttributes = {
 					149473B42006945B00BB93E4 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -486,12 +546,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NCNews/Pods-NCNews-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/DATASource/DATASource.framework",
 				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Sync/Sync.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DATASource.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sync.framework",
 			);
@@ -557,21 +621,28 @@
 			files = (
 				14F268A420078C130057C660 /* NetworkManager.swift in Sources */,
 				14FF37EC200A456400443AB1 /* OauthController.swift in Sources */,
+				14F0BA8F2011364A00E79715 /* SettingsViewController.swift in Sources */,
 				149473B92006945B00BB93E4 /* AppDelegate.swift in Sources */,
 				14FF37E0200A2B7B00443AB1 /* NetworkConvenience.swift in Sources */,
 				149473BC2006945B00BB93E4 /* NCNews.xcdatamodeld in Sources */,
 				14FF37E7200A3F0F00443AB1 /* KeychainConfiguration.swift in Sources */,
-				149473BE2006945B00BB93E4 /* MasterViewController.swift in Sources */,
+				14F0BA922011384000E79715 /* DefaultConstants.swift in Sources */,
+				149473BE2006945B00BB93E4 /* FolderViewController.swift in Sources */,
 				1406C4EB200A87A9008FAD6D /* Feed.swift in Sources */,
 				14FF37E5200A3EEC00443AB1 /* KeychainPasswordItem.swift in Sources */,
+				149022C3200E87FE00D43050 /* ItemViewController.swift in Sources */,
 				14FF37F0200A5D9800443AB1 /* BasicAuthAdapter.swift in Sources */,
 				1406C4EA200A87A9008FAD6D /* FeedItem.swift in Sources */,
+				14F0BA8D2010EFF500E79715 /* NCColor.swift in Sources */,
+				149022C1200E873700D43050 /* FeedViewController.swift in Sources */,
 				14F268A1200699C50057C660 /* LoginViewController.swift in Sources */,
 				14FF37EA200A41EE00443AB1 /* NextCloudAPIAdapter.swift in Sources */,
 				14FF37EE200A45F700443AB1 /* BasicAuthController.swift in Sources */,
+				14F0BA992011E03A00E79715 /* ImageFinder.swift in Sources */,
 				1406C4EE200A87A9008FAD6D /* Folder.swift in Sources */,
 				149473C02006945B00BB93E4 /* DetailViewController.swift in Sources */,
 				14FF37E2200A2BD900443AB1 /* AccessTokenAdapter.swift in Sources */,
+				14EA99252015D7E900567CB0 /* readable.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,10 +701,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -660,11 +730,11 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					READABLE_USE_LIBICU,
 					"DEBUG=1",
 					"$(inherited)",
 				);
@@ -674,12 +744,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(SDKROOT)/ICU/include",
+					"$(SRCROOT)/ext/readable",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ext/readable";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-Objc";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "x86_64 arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -687,10 +765,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -717,19 +794,27 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = READABLE_USE_LIBICU;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(SDKROOT)/ICU/include",
+					"$(SRCROOT)/ext/readable",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ext/readable";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-Objc";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "x86_64 arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -738,6 +823,7 @@
 			baseConfigurationReference = ED491D43851C732A514D358A /* Pods-NCNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NCNews/NCNews.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6S5V56E82;
@@ -746,6 +832,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eu.seanmolenaar.NCNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NCNews-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -756,6 +844,7 @@
 			baseConfigurationReference = 929F5B74F114F0788F2D0546 /* Pods-NCNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NCNews/NCNews.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6S5V56E82;
@@ -764,6 +853,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eu.seanmolenaar.NCNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NCNews-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

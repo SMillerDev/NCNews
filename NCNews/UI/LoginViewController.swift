@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var secretField: UITextField!
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var navBar: UINavigationBar!
     var passwordItems: [KeychainPasswordItem] = []
     var views: [UIView] = []
 
@@ -27,17 +28,28 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        urlField.text = UserDefaults.standard.url(forKey: "NCURL")?.absoluteString
-        let hasLoginKey = UserDefaults.standard.bool(forKey: "hasLoginKey")
+        navBar.barTintColor = NCColor.custom
+        urlField.text = UserDefaults.standard.url(forKey: DefaultConstants.url)?.absoluteString
+        views = [loginView, oauthView]
+        secretField.text = UserDefaults.standard.string(forKey: DefaultConstants.authKey)
+        userField.text = UserDefaults.standard.string(forKey: DefaultConstants.username)
+        UserDefaults.standard.removeObject(forKey: DefaultConstants.authKey)
+    }
+    @IBAction func didFinishEditingURL(_ sender: Any) {
+        NetworkManager.getColor(url: urlField.text!, completionHandler: { color in
+            self.navBar.barTintColor = color
+        })
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        let hasLoginKey = UserDefaults.standard.bool(forKey: DefaultConstants.didLogin)
         if hasLoginKey {
             //Already logged in, continuing
-
+            if let user = UserDefaults.standard.string(forKey: DefaultConstants.username), !user.isEmpty {
+                self.basicAuth(UserDefaults.standard.url(forKey: DefaultConstants.url)!, user: user)
+                return
+            }
         }
-
-        views = [loginView, oauthView]
-        secretField.text = UserDefaults.standard.string(forKey: "NCclientSecret")
-        userField.text = UserDefaults.standard.string(forKey: "NCusername")
-        UserDefaults.standard.removeObject(forKey: "NCclientSecret")
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,7 +72,7 @@ class LoginViewController: UIViewController {
             present(alertView, animated: true, completion: nil)
             return
         }
-        UserDefaults.standard.set(url, forKey: "NCURL")
+        UserDefaults.standard.set(url, forKey: DefaultConstants.url)
         if segmentControl.selectedSegmentIndex == 0 {
             self.basicAuth(url)
             return
@@ -72,14 +84,10 @@ class LoginViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let splitViewController = segue.destination as! UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-        splitViewController.delegate = delegate
-
-        let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
-        let controller = masterNavigationController.topViewController as! MasterViewController
-        controller.managedObjectContext = delegate?.persistentContainer.viewContext
+        let splitViewController = segue.destination as? UISplitViewController
+        let navigationController = splitViewController?.viewControllers[(splitViewController?.viewControllers.count)!-1] as? UINavigationController
+        navigationController?.topViewController!.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        splitViewController?.delegate = delegate
     }
 
     func reportError(error: String, alert: Bool) {
