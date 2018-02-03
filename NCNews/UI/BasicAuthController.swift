@@ -46,8 +46,8 @@ extension LoginViewController {
 
     internal func auth(_ url: URL, user: String, password: String) {
         UserDefaults.standard.set(true, forKey: DefaultConstants.didLogin)
-        self.delegate?.networkManager = NetworkManager(url, user: user, pass: password)
-        self.delegate?.networkManager?.initial_sync()
+        self.delegate?.sync = Sync(url, user: user, pass: password)
+        self.delegate?.sync?.fullSync()
         self.performSegue(withIdentifier: "logginSegue", sender: nil)
     }
 

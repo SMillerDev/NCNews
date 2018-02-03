@@ -7,9 +7,10 @@
 //
 
 import UIKit
-
 class ImageFinder {
-    class func find(html: String) -> URL? {
-        return URL(string: "test")
+    class func find(html: String, url: URL) -> URL? {
+        let html = "<html><body\(html)</body></html>"
+
+        return URL(string: "https://raw.githubusercontent.com/nextcloud/news/master/screenshots/1.png")
     }
 }

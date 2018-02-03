@@ -4,3 +4,6 @@
 [submodule "ext/readable"]
 	path = ext/readable
 	url = git@github.com:JanX2/readable.git
+[submodule "Frameworks/Readable"]
+	path = Frameworks/Readable
+	url = git@github.com:JanX2/readable-framework.git

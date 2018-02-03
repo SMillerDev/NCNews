@@ -20,7 +20,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var secretField: UITextField!
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var navBar: UINavigationBar!
     var passwordItems: [KeychainPasswordItem] = []
     var views: [UIView] = []
 
@@ -28,7 +27,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navBar.barTintColor = NCColor.custom
+        navigationController?.navigationBar.barTintColor = NCColor.custom
         urlField.text = UserDefaults.standard.url(forKey: DefaultConstants.url)?.absoluteString
         views = [loginView, oauthView]
         secretField.text = UserDefaults.standard.string(forKey: DefaultConstants.authKey)
@@ -37,7 +36,7 @@ class LoginViewController: UIViewController {
     }
     @IBAction func didFinishEditingURL(_ sender: Any) {
         NetworkManager.getColor(url: urlField.text!, completionHandler: { color in
-            self.navBar.barTintColor = color
+            self.navigationController?.navigationBar.barTintColor = color
         })
     }
 

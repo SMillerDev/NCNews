@@ -9,6 +9,10 @@ target 'NCNews' do
   pod 'OAuthSwift', '~> 1.2'
   pod 'Alamofire', '~> 4.6'
   pod 'AlamofireImage', '~> 3.3'
+  pod 'AlamofireNetworkActivityIndicator', '~> 2.2'
+  pod 'TDBadgedCell', '~> 5.2'
+  # eventually we'll use this
+  #  pod 'SwipeCellKit', '~> 2.0'
   pod 'SwiftLint'
   pod 'Sync', '~> 4'
   pod 'DATASource', '~> 7.0'

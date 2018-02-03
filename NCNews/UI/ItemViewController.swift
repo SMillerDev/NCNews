@@ -11,39 +11,36 @@ import CoreData
 import Sync
 import DATASource
 
-class ItemViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class ItemViewController: ListViewController<FeedItem> {
 
     var detailViewController: DetailViewController?
-    var feed: NSManagedObject?
-    let dataStack: DataStack = DataStack()
-    var folder: Folder?
+    weak var delegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
 
-    lazy var dataSource: DATASource = {
-        let request: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FeedItem")
-        request.sortDescriptors = [NSSortDescriptor(key: "pubDate", ascending: false)]
-        if let id = (feed as? Feed)?.id {
-            request.predicate = NSPredicate(format: "feed.id == %d", id)
+    override func setupCell(_ cell: UITableViewCell, item: FeedItem?) {
+        super.setupCell(cell, item: item)
+        cell.detailTextLabel?.text = item?.lead
+        if let url = item?.image {
+            cell.imageView?.af_setImage(withURL: URL(string: url)!, placeholderImage: UIImage(named: "News")!)
         }
-
-        let dataSource = DATASource(tableView: self.tableView,
-                                    cellIdentifier: "itemCell",
-                                    fetchRequest: request,
-                                    mainContext: self.dataStack.mainContext,
-                                    configuration: { cell, item, _ in
-            cell.textLabel?.text = item.value(forKey: "title") as? String
-            cell.detailTextLabel?.text = item.value(forKey: "lead") as? String
-            if let url = item.value(forKey: "image") as? String {
-                cell.imageView?.af_setImage(withURL: URL(string: url)!, placeholderImage: UIImage(named: "News")!)
-            }
-        })
-
-        return dataSource
-    }()
+        if let unread = item?.unread, unread {
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: (cell.textLabel?.font.pointSize)!)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.clearsSelectionOnViewWillAppear = false
-        self.tableView.dataSource = self.dataSource
+//        self.searchController = UISearchController(searchResultsController: self)
+//        self.searchController.delegate = self
+//        self.searchController.searchResultsUpdater = self
+//        self.searchController.searchBar.scopeButtonTitles = ["Unread", "Starred", "All"]
+//        self.searchController.searchBar.tintColor = UIColor.lightText
+//        self.clearsSelectionOnViewWillAppear = false
+//        self.tableView.dataSource = self.dataSource
+//        if #available(iOS 11.0, *) {
+//            self.navigationItem.searchController = searchController
+//        } else {
+//            self.tableView.tableHeaderView = self.searchController.searchBar
+//        }
 
         if let split = splitViewController {
             let controllers = split.viewControllers
@@ -55,16 +52,12 @@ class ItemViewController: UITableViewController, NSFetchedResultsControllerDeleg
         self.performSegue(withIdentifier: "showDetail", sender: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let object = self.dataSource.object(indexPath)
+                delegate?.sync?.markRead(object as? FeedItem)
                 let controller = (segue.destination as? UINavigationController)?.topViewController as? DetailViewController
                 controller?.detailItem = object as? FeedItem
                 controller?.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem

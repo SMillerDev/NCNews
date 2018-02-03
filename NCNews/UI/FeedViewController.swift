@@ -11,47 +11,27 @@ import CoreData
 import Sync
 import DATASource
 import AlamofireImage
+import TDBadgedCell
 
-class FeedViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class FeedViewController: ListViewController<Feed> {
 
-    let dataStack: DataStack = DataStack()
-    var folder: Folder?
-    lazy var dataSource: DATASource = {
-        let request: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Feed")
-        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-        if let id = folder?.id {
-            request.predicate = NSPredicate(format: "folder.id == %d", id)
+    override func setupCell(_ cell: UITableViewCell, item: Feed?) {
+        super.setupCell(cell, item: item)
+        let cell = cell as! TDBadgedCell
+        if let favicon = item?.faviconLink {
+            let url = URL(string: favicon)!
+            cell.imageView?.af_setImage(withURL: url, placeholderImage: UIImage(named: "RSS")!)
         }
-
-        let dataSource = DATASource(tableView: self.tableView,
-                                    cellIdentifier: "feedCell",
-                                    fetchRequest: request,
-                                    mainContext: self.dataStack.mainContext,
-                                    configuration: { cell, item, _ in
-            if let favicon = item.value(forKey: "faviconLink") as? String {
-                let url = URL(string: favicon)!
-                cell.imageView?.af_setImage(withURL: url, placeholderImage: UIImage(named: "RSS")!)
-            }
-            cell.textLabel?.text = item.value(forKey: "title") as? String
-        })
-
-        return dataSource
-    }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.clearsSelectionOnViewWillAppear = false
-        self.tableView.dataSource = self.dataSource
+        cell.textLabel?.text = item?.title
+        if let unread = item?.unreadCount, unread > 0 {
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: (cell.textLabel?.font.pointSize)!)
+            cell.badgeString = String(describing: unread)
+            cell.badgeColor = NCColor.custom
+        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "showArticles", sender: nil)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Navigation
@@ -64,14 +44,9 @@ class FeedViewController: UITableViewController, NSFetchedResultsControllerDeleg
 
         if segue.identifier == "showArticles" {
             let controller: ItemViewController? = (segue.destination as? UINavigationController)?.topViewController as? ItemViewController
-            controller?.feed = object
+            controller?.parentObject = object
             controller?.title = object.title
             configureNew(controller: controller)
         }
-    }
-
-    internal func configureNew(controller: UITableViewController?) {
-        controller?.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-        controller?.navigationItem.leftItemsSupplementBackButton = true
     }
 }

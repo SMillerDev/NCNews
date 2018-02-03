@@ -13,9 +13,8 @@ import Sync
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
-
     var window: UIWindow?
-    var networkManager: NetworkManager?
+    var sync: Sync?
     let datastack: DataStack = DataStack()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

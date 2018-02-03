@@ -43,7 +43,7 @@ class DetailViewController: UIViewController {
             let author = detail.author ?? "Unknown"
             label.text = "By: " + author
         }
-        if let label = feedLabel, let title = detail.feed?.title {
+        if let label = feedLabel, let title = detail.parent?.title {
             label.text = title
         }
     }
@@ -75,7 +75,7 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func selectedShare(_ sender: Any) {
-        let textToShare = (detailItem?.title)! + " - " + (detailItem?.feed?.title)!
+        let textToShare = (detailItem?.title)! + " - " + (detailItem?.parent?.title)!
 
         if let myWebsite = NSURL(string: (detailItem?.url)!) {
             let objectsToShare = [textToShare, myWebsite] as [Any]
@@ -94,9 +94,8 @@ class DetailViewController: UIViewController {
             return nil
         }
         do {
-            let str = try NSAttributedString(data: d,
-                                             options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html],
-                                             documentAttributes: nil)
+            let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html]
+            let str = try NSAttributedString(data: d, options: options, documentAttributes: nil)
             return str
         } catch {
         }

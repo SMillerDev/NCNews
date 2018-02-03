@@ -2,27 +2,34 @@ PODS:
   - Alamofire (4.6.0)
   - AlamofireImage (3.3.0):
     - Alamofire (~> 4.5)
+  - AlamofireNetworkActivityIndicator (2.2.0):
+    - Alamofire (~> 4.5)
   - DATASource (7.0.1)
   - OAuthSwift (1.2.0)
   - SwiftLint (0.24.2)
-  - Sync (4.0.3)
+  - Sync (4.1.1)
+  - TDBadgedCell (5.2.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.6)
   - AlamofireImage (~> 3.3)
+  - AlamofireNetworkActivityIndicator (~> 2.2)
   - DATASource (~> 7.0)
   - OAuthSwift (~> 1.2)
   - SwiftLint
   - Sync (~> 4)
+  - TDBadgedCell (~> 5.2)
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
   DATASource: 8cc3060d145b8b1855859f92fbff52b1b1930c7e
   OAuthSwift: 7fd6855b8e4d58eb5a30d156ea9bed7a8aecd1ca
   SwiftLint: 2aa21b96c8d13396a051bc1cb659d2ce1e0075b0
-  Sync: 0490b72e3322ba86095f603d7230bec36749f249
+  Sync: e0f652f552935c63cbc911f588b3eebe70490402
+  TDBadgedCell: c166ffcb0d1f2fce244df8ae5bac23056803217b
 
-PODFILE CHECKSUM: 7ac94dbbc1632864aaf659884411d26716f0b2a7
+PODFILE CHECKSUM: e7280e812e06e6db27652d49308450826d0af9cf
 
 COCOAPODS: 1.3.1
