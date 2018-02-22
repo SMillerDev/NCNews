@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 import Sync
-import DATASource
 import AlamofireImage
 import TDBadgedCell
 
@@ -40,7 +39,7 @@ class FeedViewController: ListViewController<Feed> {
         guard let indexPath = tableView.indexPathForSelectedRow else {
             return
         }
-        let object = dataSource.object(indexPath) as! Feed
+        let object = fetchedResultsController.object(at: indexPath) as! Feed
 
         if segue.identifier == "showArticles" {
             let controller: ItemViewController? = (segue.destination as? UINavigationController)?.topViewController as? ItemViewController

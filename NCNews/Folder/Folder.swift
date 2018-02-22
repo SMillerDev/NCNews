@@ -11,6 +11,7 @@ import CoreData
 
 class Folder: NSManagedObject, NCNewsObject {
     static var dateSorted: Bool = false
+    static var parentName: String?
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Folder> {
         return NSFetchRequest<Folder>(entityName: "Folder")
     }
@@ -27,12 +28,14 @@ class Folder: NSManagedObject, NCNewsObject {
         return ids
     }
 
-    func fill(with json: [String: AnyObject]) {
-        if json.index(forKey: "id") != nil {
-            self.id = (json["id"] as? Int64)!
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
+    }
+
+    override func fill(with json: [String: Any]) {
+        if let id = json["id"] as? NSNumber {
+            self.id = id.int64Value
         }
-        if json.index(forKey: "name") != nil {
-            self.title = json["name"] as? String
-        }
+        self.title = json["name"] as? String
     }
 }

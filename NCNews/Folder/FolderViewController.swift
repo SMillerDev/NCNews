@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import DATASource
 import Sync
 
 class FolderViewController: ListViewController<Folder> {
@@ -33,7 +32,7 @@ class FolderViewController: ListViewController<Folder> {
         guard let indexPath = tableView.indexPathForSelectedRow else {
             return
         }
-        let object = dataSource.object(indexPath) as! Folder
+        let object = fetchedResultsController.object(at: indexPath) as! Folder
 
         if segue.identifier == "showFeeds" {
             let controller: FeedViewController? = (segue.destination as? UINavigationController)?.topViewController as? FeedViewController

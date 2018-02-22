@@ -24,7 +24,7 @@ extension LoginViewController {
             scope: "profile",
             state: "NEXTCLOUD",
             success: { credential, _, _ in
-                self.delegate?.sync = Sync(url, token: credential.oauthToken)
+                self.delegate?.sync = Sync(url, container: (self.delegate?.persistentContainer)!, token: credential.oauthToken)
                 UserDefaults.standard.set(true, forKey: DefaultConstants.didLogin)
                 self.delegate?.sync?.fullSync()
                 self.performSegue(withIdentifier: "logginSegue", sender: nil)

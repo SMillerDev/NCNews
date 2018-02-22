@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 import Sync
-import DATASource
 
 class ItemViewController: ListViewController<FeedItem> {
 
@@ -35,7 +34,6 @@ class ItemViewController: ListViewController<FeedItem> {
 //        self.searchController.searchBar.scopeButtonTitles = ["Unread", "Starred", "All"]
 //        self.searchController.searchBar.tintColor = UIColor.lightText
 //        self.clearsSelectionOnViewWillAppear = false
-//        self.tableView.dataSource = self.dataSource
 //        if #available(iOS 11.0, *) {
 //            self.navigationItem.searchController = searchController
 //        } else {
@@ -56,7 +54,7 @@ class ItemViewController: ListViewController<FeedItem> {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let object = self.dataSource.object(indexPath)
+                let object = self.fetchedResultsController.object(at: indexPath)
                 delegate?.sync?.markRead(object as? FeedItem)
                 let controller = (segue.destination as? UINavigationController)?.topViewController as? DetailViewController
                 controller?.detailItem = object as? FeedItem

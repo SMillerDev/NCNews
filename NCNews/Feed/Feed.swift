@@ -11,6 +11,7 @@ import CoreData
 
 class Feed: NSManagedObject, NCNewsObject {
     static var dateSorted: Bool = false
+    static var parentName: String? = "Folder"
 
     @NSManaged public var id: Int64
     @NSManaged public var title: String?
@@ -48,38 +49,25 @@ class Feed: NSManagedObject, NCNewsObject {
         return ids
     }
 
-    func fill(with json: [String: AnyObject]) {
-        if json.index(forKey: "id") != nil {
-            self.id = json["id"] as! Int64
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
+    }
+
+    override func fill(with json: [String: Any]) {
+        if let id = json["id"] as? NSNumber {
+            self.id = id.int64Value
         }
-        if json.index(forKey: "title") != nil {
-            self.title = json["title"] as? String
+        if let id = json["folderId"] as? NSNumber,
+            id.intValue > 0,
+            let parent = DBManager.managedObject(id: id, context: self.managedObjectContext!, type: Folder.self, name: "Folder") {
+            self.parent = parent
         }
-        if json.index(forKey: "added") != nil {
-            self.added = json["added"] as? NSDate
-        }
-        if json.index(forKey: "url") != nil {
-            self.url = json["url"] as? String
-        }
-        if json.index(forKey: "link") != nil {
-            self.link = json["link"] as? String
-        }
-        if json.index(forKey: "faviconLink") != nil {
-            self.faviconLink = json["faviconLink"] as? String
-        }
-        if json.index(forKey: "pinned") != nil {
-            self.pinned = (json["pinned"] as? Bool) ?? false
-        }
-        if json.index(forKey: "ordering") != nil {
-            self.ordering = json["ordering"] as? Int64 ?? 0
-        }
-        if let parent_id = json["folderId"] as? Int64 {
-            do {
-                self.parent = try self.managedObjectContext?.fetch(parent_id, inEntityNamed: "Folder")
-            } catch {
-                print("❌ ERROR: No folder found for feed \(parent_id)")
-                self.parent = nil
-            }
-        }
+        self.title = json["title"] as? String
+        self.added = json["added"] as? NSDate
+        self.url = json["url"] as? String
+        self.link = json["link"] as? String
+        self.faviconLink = json["faviconLink"] as? String
+        self.pinned = (json["pinned"] as? Bool) ?? false
+        self.ordering = json["ordering"] as? Int64 ?? 0
     }
 }

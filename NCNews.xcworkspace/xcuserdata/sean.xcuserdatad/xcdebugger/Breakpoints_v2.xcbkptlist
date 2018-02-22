@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NCNews/UI/LoginViewController.swift"
-            timestampString = "539042032.7805901"
+            timestampString = "539516840.896253"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NCNews/UI/LoginViewController.swift"
-            timestampString = "539042032.780827"
+            timestampString = "539516840.896485"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NCNews/UI/LoginViewController.swift"
-            timestampString = "539042032.780888"
+            timestampString = "539516840.896566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NCNews/UI/BasicAuthController.swift"
-            timestampString = "539363943.620085"
+            timestampString = "539516840.8966399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
@@ -265,13 +265,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NCNews/UI/FolderViewController.swift"
-            timestampString = "539363943.62451"
+            filePath = "NCNews/CoreData/FeedItem.swift"
+            timestampString = "540418627.257171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "fill(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -281,13 +281,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NCNews/UI/FolderViewController.swift"
-            timestampString = "539363943.624768"
+            filePath = "NCNews/CoreData/FeedItem.swift"
+            timestampString = "540418627.257273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "fill(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -297,13 +297,61 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NCNews/UI/FolderViewController.swift"
-            timestampString = "539363943.624944"
+            filePath = "NCNews/Sync/DBManager.swift"
+            timestampString = "540418627.25745"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "saveToDB(array:name:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NCNews.DBManager.saveToDB(array: Swift.Optional&lt;Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;&gt;, name: Swift.String) -&gt; PromiseKit.Promise&lt;Swift.Optional&lt;Any&gt;&gt;"
+                  moduleName = "NCNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sean/dev/Xcode/NCNews/NCNews/Sync/DBManager.swift"
+                  timestampString = "540247770.365795"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "481">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.NSManagedObjectContext) -&gt; () in NCNews.DBManager.saveToDB(array: Swift.Optional&lt;Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;&gt;, name: Swift.String) -&gt; PromiseKit.Promise&lt;Swift.Optional&lt;Any&gt;&gt;"
+                  moduleName = "NCNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sean/dev/Xcode/NCNews/NCNews/Sync/DBManager.swift"
+                  timestampString = "540247770.37564"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "45">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NCNews/Sync/DBManager.swift"
+            timestampString = "540418627.25754"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "managedObject(id:context:type:name:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -313,13 +361,77 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NCNews/UI/FolderViewController.swift"
-            timestampString = "539363943.625046"
+            filePath = "NCNews/Sync/DBManager.swift"
+            timestampString = "540418627.2576489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "managedObject(id:context:type:name:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static NCNews.DBManager.managedObject&lt;A where A: __ObjC.NSManagedObject&gt;(id: __ObjC.NSNumber, context: __ObjC.NSManagedObjectContext, type: A.Type, name: Swift.Optional&lt;Swift.String&gt;) -&gt; PromiseKit.Promise&lt;A&gt;"
+                  moduleName = "NCNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sean/dev/Xcode/NCNews/NCNews/Sync/DBManager.swift"
+                  timestampString = "540247770.399104"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "1051">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((A) -&gt; (), (Swift.Error) -&gt; ()) -&gt; () in static NCNews.DBManager.managedObject&lt;A where A: __ObjC.NSManagedObject&gt;(id: __ObjC.NSNumber, context: __ObjC.NSManagedObjectContext, type: A.Type, name: Swift.Optional&lt;Swift.String&gt;) -&gt; PromiseKit.Promise&lt;A&gt;"
+                  moduleName = "NCNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sean/dev/Xcode/NCNews/NCNews/Sync/DBManager.swift"
+                  timestampString = "540247770.404302"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NCNews/Sync/DBManager.swift"
+            timestampString = "540418627.25775"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "saveToDB(array:name:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NCNews/UI/ListViewController.swift"
+            timestampString = "540418627.257825"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -329,13 +441,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NCNews/UI/FolderViewController.swift"
-            timestampString = "539363943.62517"
+            filePath = "NCNews/Generic/UI/ListViewController.swift"
+            timestampString = "541031401.813413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -345,13 +457,45 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NCNews/UI/FolderViewController.swift"
-            timestampString = "539363943.625283"
+            filePath = "NCNews/Generic/UI/ListViewController.swift"
+            timestampString = "541031401.818332"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NCNews/FeedItem/DetailViewController.swift"
+            timestampString = "541031401.819026"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "configureView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NCNews/FeedItem/DetailViewController.swift"
+            timestampString = "541031401.819357"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "configureView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

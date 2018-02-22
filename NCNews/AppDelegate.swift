@@ -9,19 +9,20 @@
 import UIKit
 import CoreData
 import OAuthSwift
-import Sync
+import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
     var window: UIWindow?
     var sync: Sync?
-    let datastack: DataStack = DataStack()
+    var persistentContainer: NSPersistentContainer?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
 
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        debugPrint(paths[0])
+//        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+//        debugPrint(paths[0])
+        NetworkActivityIndicatorManager.shared.isEnabled = true
+        setupCoreData()
         return true
     }
 
@@ -54,11 +55,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     // MARK: - Core Data Saving support
 
+    func setupCoreData() {
+        let persistentContainer = NSPersistentContainer(name: "NCNews")
+        persistentContainer.loadPersistentStores { (_, error) in
+            if let error = error {
+                fatalError("Failed to load Core Data stack: \(error)")
+            }
+        }
+        self.persistentContainer = persistentContainer
+        debugPrint(self.persistentContainer!.persistentStoreDescriptions.first.debugDescription)
+    }
+
     func saveContext () {
-        let context = datastack.viewContext
-        if context.hasChanges {
+        if let changes = persistentContainer?.viewContext.hasChanges, changes {
             do {
-                try context.save()
+                try persistentContainer?.viewContext.save()
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")

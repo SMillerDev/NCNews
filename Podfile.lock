@@ -6,7 +6,19 @@ PODS:
     - Alamofire (~> 4.5)
   - DATASource (7.0.1)
   - OAuthSwift (1.2.0)
-  - SwiftLint (0.24.2)
+  - PromiseKit (6.0.1):
+    - PromiseKit/CorePromise (= 6.0.1)
+    - PromiseKit/Foundation (= 6.0.1)
+    - PromiseKit/UIKit (= 6.0.1)
+  - PromiseKit/Alamofire (6.0.1):
+    - Alamofire (~> 4.0)
+    - PromiseKit/CorePromise
+  - PromiseKit/CorePromise (6.0.1)
+  - PromiseKit/Foundation (6.0.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.0.1):
+    - PromiseKit/CorePromise
+  - SwiftLint (0.25.0)
   - Sync (4.1.1)
   - TDBadgedCell (5.2.1)
 
@@ -16,6 +28,8 @@ DEPENDENCIES:
   - AlamofireNetworkActivityIndicator (~> 2.2)
   - DATASource (~> 7.0)
   - OAuthSwift (~> 1.2)
+  - PromiseKit (~> 6.0)
+  - PromiseKit/Alamofire (~> 6.0)
   - SwiftLint
   - Sync (~> 4)
   - TDBadgedCell (~> 5.2)
@@ -26,10 +40,11 @@ SPEC CHECKSUMS:
   AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
   DATASource: 8cc3060d145b8b1855859f92fbff52b1b1930c7e
   OAuthSwift: 7fd6855b8e4d58eb5a30d156ea9bed7a8aecd1ca
-  SwiftLint: 2aa21b96c8d13396a051bc1cb659d2ce1e0075b0
+  PromiseKit: 18fcba8db2b15c3887ba8acb3e9a328702be3f93
+  SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   Sync: e0f652f552935c63cbc911f588b3eebe70490402
   TDBadgedCell: c166ffcb0d1f2fce244df8ae5bac23056803217b
 
-PODFILE CHECKSUM: e7280e812e06e6db27652d49308450826d0af9cf
+PODFILE CHECKSUM: 8fbd82f9f9cd3ae6213c811dc42e26699efb8972
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

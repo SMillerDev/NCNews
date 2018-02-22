@@ -10,7 +10,10 @@
 		1406C4EA200A87A9008FAD6D /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406C4E4200A87A9008FAD6D /* FeedItem.swift */; };
 		1406C4EB200A87A9008FAD6D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406C4E5200A87A9008FAD6D /* Feed.swift */; };
 		1406C4EE200A87A9008FAD6D /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406C4E8200A87A9008FAD6D /* Folder.swift */; };
+		140C1904203388BF00513420 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C1903203388BF00513420 /* TableViewHelper.swift */; };
+		1453376A2028548600C62602 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145337692028548600C62602 /* Utils.swift */; };
 		1468E853201875EA00533653 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1468E852201875EA00533653 /* Settings.bundle */; };
+		146BB5B2203F18CC00E78EED /* LeadFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146BB5B1203F18CC00E78EED /* LeadFinder.swift */; };
 		147078D420210621005836B9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147078D320210621005836B9 /* ListViewController.swift */; };
 		149022C1200E873700D43050 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149022C0200E873700D43050 /* FeedViewController.swift */; };
 		149022C3200E87FE00D43050 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149022C2200E87FE00D43050 /* ItemViewController.swift */; };
@@ -80,7 +83,10 @@
 		1406C4E4200A87A9008FAD6D /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		1406C4E5200A87A9008FAD6D /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		1406C4E8200A87A9008FAD6D /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		140C1903203388BF00513420 /* TableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
+		145337692028548600C62602 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1468E852201875EA00533653 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		146BB5B1203F18CC00E78EED /* LeadFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadFinder.swift; sourceTree = "<group>"; };
 		147078D320210621005836B9 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		149022C0200E873700D43050 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		149022C2200E87FE00D43050 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
@@ -157,15 +163,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1406C4E3200A87A9008FAD6D /* CoreData */ = {
+		1404339020362263001231AF /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				14F268A0200699C50057C660 /* LoginViewController.swift */,
+				14FF37ED200A45F700443AB1 /* BasicAuthController.swift */,
+				14FF37EB200A456400443AB1 /* OauthController.swift */,
+				14F0BA902011382000E79715 /* Keychain */,
+				149F61482025DBCD003D8C92 /* Adapters */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		140433912036CE7B001231AF /* FeedItem */ = {
 			isa = PBXGroup;
 			children = (
 				1406C4E4200A87A9008FAD6D /* FeedItem.swift */,
-				1406C4E5200A87A9008FAD6D /* Feed.swift */,
-				1406C4E8200A87A9008FAD6D /* Folder.swift */,
-				35CDFCE0B9BD5635B290E4AD /* NCNewsObject.swift */,
+				149022C2200E87FE00D43050 /* ItemViewController.swift */,
+				149473BF2006945B00BB93E4 /* DetailViewController.swift */,
 			);
-			path = CoreData;
+			path = FeedItem;
+			sourceTree = "<group>";
+		};
+		140433922036CED9001231AF /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				145337692028548600C62602 /* Utils.swift */,
+				35CDFCE0B9BD5635B290E4AD /* NCNewsObject.swift */,
+				149F614B2025DCD8003D8C92 /* Sync.swift */,
+				14F268A320078C130057C660 /* NetworkManager.swift */,
+				14FF37DF200A2B7B00443AB1 /* NetworkConvenience.swift */,
+				149F61492025DC0C003D8C92 /* DBManager.swift */,
+			);
+			path = Sync;
+			sourceTree = "<group>";
+		};
+		140433932036CEFF001231AF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				14F0BA8E2011364A00E79715 /* SettingsViewController.swift */,
+				147078D320210621005836B9 /* ListViewController.swift */,
+				140C1903203388BF00513420 /* TableViewHelper.swift */,
+				149473C12006945B00BB93E4 /* Main.storyboard */,
+				14F0BA8C2010EFF500E79715 /* NCColor.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1406C4E3200A87A9008FAD6D /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				149022C0200E873700D43050 /* FeedViewController.swift */,
+				1406C4E5200A87A9008FAD6D /* Feed.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		149473AC2006945B00BB93E4 = {
@@ -195,18 +246,19 @@
 		149473B72006945B00BB93E4 /* NCNews */ = {
 			isa = PBXGroup;
 			children = (
-				14F0BA972011E01F00E79715 /* Readability */,
-				1406C4E3200A87A9008FAD6D /* CoreData */,
-				14FF37E3200A3E7B00443AB1 /* NCNews.entitlements */,
 				149473B82006945B00BB93E4 /* AppDelegate.swift */,
-				14FF37E8200A41C400443AB1 /* Sync */,
-				14F268A220078BE60057C660 /* UI */,
+				14FF37E3200A3E7B00443AB1 /* NCNews.entitlements */,
 				149473C42006945B00BB93E4 /* Assets.xcassets */,
 				149473C62006945B00BB93E4 /* LaunchScreen.storyboard */,
-				149473C92006945B00BB93E4 /* Info.plist */,
 				149473BA2006945B00BB93E4 /* NCNews.xcdatamodeld */,
-				14F0BA902011382000E79715 /* Core */,
+				149473C92006945B00BB93E4 /* Info.plist */,
 				1468E852201875EA00533653 /* Settings.bundle */,
+				1404339020362263001231AF /* Auth */,
+				14F268A220078BE60057C660 /* Folder */,
+				1406C4E3200A87A9008FAD6D /* Feed */,
+				140433912036CE7B001231AF /* FeedItem */,
+				14FF37E8200A41C400443AB1 /* Generic */,
+				14F0BA972011E01F00E79715 /* Readability */,
 			);
 			path = NCNews;
 			sourceTree = "<group>";
@@ -239,52 +291,41 @@
 			path = Adapters;
 			sourceTree = "<group>";
 		};
-		14F0BA902011382000E79715 /* Core */ = {
+		14F0BA902011382000E79715 /* Keychain */ = {
 			isa = PBXGroup;
 			children = (
 				14FF37E6200A3F0E00443AB1 /* KeychainConfiguration.swift */,
 				14FF37E4200A3EEC00443AB1 /* KeychainPasswordItem.swift */,
 				14F0BA912011384000E79715 /* DefaultConstants.swift */,
 			);
-			path = Core;
+			path = Keychain;
 			sourceTree = "<group>";
 		};
 		14F0BA972011E01F00E79715 /* Readability */ = {
 			isa = PBXGroup;
 			children = (
 				14F0BA982011E03A00E79715 /* ImageFinder.swift */,
+				146BB5B1203F18CC00E78EED /* LeadFinder.swift */,
 			);
 			path = Readability;
 			sourceTree = "<group>";
 		};
-		14F268A220078BE60057C660 /* UI */ = {
+		14F268A220078BE60057C660 /* Folder */ = {
 			isa = PBXGroup;
 			children = (
 				149473BD2006945B00BB93E4 /* FolderViewController.swift */,
-				149022C0200E873700D43050 /* FeedViewController.swift */,
-				149022C2200E87FE00D43050 /* ItemViewController.swift */,
-				149473BF2006945B00BB93E4 /* DetailViewController.swift */,
-				149473C12006945B00BB93E4 /* Main.storyboard */,
-				14F268A0200699C50057C660 /* LoginViewController.swift */,
-				14FF37ED200A45F700443AB1 /* BasicAuthController.swift */,
-				14FF37EB200A456400443AB1 /* OauthController.swift */,
-				14F0BA8C2010EFF500E79715 /* NCColor.swift */,
-				14F0BA8E2011364A00E79715 /* SettingsViewController.swift */,
-				147078D320210621005836B9 /* ListViewController.swift */,
+				1406C4E8200A87A9008FAD6D /* Folder.swift */,
 			);
-			path = UI;
+			path = Folder;
 			sourceTree = "<group>";
 		};
-		14FF37E8200A41C400443AB1 /* Sync */ = {
+		14FF37E8200A41C400443AB1 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
-				14F268A320078C130057C660 /* NetworkManager.swift */,
-				14FF37DF200A2B7B00443AB1 /* NetworkConvenience.swift */,
-				149F61482025DBCD003D8C92 /* Adapters */,
-				149F61492025DC0C003D8C92 /* DBManager.swift */,
-				149F614B2025DCD8003D8C92 /* Sync.swift */,
+				140433922036CED9001231AF /* Sync */,
+				140433932036CEFF001231AF /* UI */,
 			);
-			path = Sync;
+			path = Generic;
 			sourceTree = "<group>";
 		};
 		BF09DEC3BFA4ECE22B412707 /* Frameworks */ = {
@@ -583,6 +624,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/DATASource/DATASource.framework",
 				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Sync/Sync.framework",
 				"${BUILT_PRODUCTS_DIR}/TDBadgedCell/TDBadgedCell.framework",
 			);
@@ -593,6 +635,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DATASource.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sync.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TDBadgedCell.framework",
 			);
@@ -659,6 +702,7 @@
 				14F268A420078C130057C660 /* NetworkManager.swift in Sources */,
 				14FF37EC200A456400443AB1 /* OauthController.swift in Sources */,
 				14F0BA8F2011364A00E79715 /* SettingsViewController.swift in Sources */,
+				1453376A2028548600C62602 /* Utils.swift in Sources */,
 				149F614A2025DC0C003D8C92 /* DBManager.swift in Sources */,
 				149473B92006945B00BB93E4 /* AppDelegate.swift in Sources */,
 				14FF37E0200A2B7B00443AB1 /* NetworkConvenience.swift in Sources */,
@@ -672,8 +716,10 @@
 				149F614C2025DCD8003D8C92 /* Sync.swift in Sources */,
 				149022C3200E87FE00D43050 /* ItemViewController.swift in Sources */,
 				14FF37F0200A5D9800443AB1 /* BasicAuthAdapter.swift in Sources */,
+				146BB5B2203F18CC00E78EED /* LeadFinder.swift in Sources */,
 				1406C4EA200A87A9008FAD6D /* FeedItem.swift in Sources */,
 				14F0BA8D2010EFF500E79715 /* NCColor.swift in Sources */,
+				140C1904203388BF00513420 /* TableViewHelper.swift in Sources */,
 				149022C1200E873700D43050 /* FeedViewController.swift in Sources */,
 				14F268A1200699C50057C660 /* LoginViewController.swift in Sources */,
 				14FF37EA200A41EE00443AB1 /* NextCloudAPIAdapter.swift in Sources */,

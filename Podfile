@@ -5,17 +5,25 @@ target 'NCNews' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for NCNews
+  # Networking
   pod 'OAuthSwift', '~> 1.2'
   pod 'Alamofire', '~> 4.6'
   pod 'AlamofireImage', '~> 3.3'
   pod 'AlamofireNetworkActivityIndicator', '~> 2.2'
+
+  # Cell Customization
   pod 'TDBadgedCell', '~> 5.2'
+
+  # Promises
+  pod 'PromiseKit', '~> 6.0'
+  pod 'PromiseKit/Alamofire', '~> 6.0'
+
+  # QA Tools
+  pod 'SwiftLint'
+
   # eventually we'll use this
   #  pod 'SwipeCellKit', '~> 2.0'
-  pod 'SwiftLint'
-  pod 'Sync', '~> 4'
-  pod 'DATASource', '~> 7.0'
+  
   target 'NCNewsTests' do
     inherit! :search_paths
     # Pods for testing

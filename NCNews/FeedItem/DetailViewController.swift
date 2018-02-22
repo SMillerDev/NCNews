@@ -12,12 +12,14 @@ import SafariServices
 class DetailViewController: UIViewController {
 
     var detailItem: FeedItem?
+    
+    @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var itemBody: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var feedLabel: UILabel!
-
+    @IBOutlet weak var itemBody: UILabel!
+    
     func configureView() {
         // Update the user interface for the detail item.
         guard let detail = detailItem else {
@@ -43,8 +45,17 @@ class DetailViewController: UIViewController {
             let author = detail.author ?? "Unknown"
             label.text = "By: " + author
         }
-        if let label = feedLabel, let title = detail.parent?.title {
+        if let label = feedLabel, let title = detail.parent.title {
             label.text = title
+        }
+        if let imageView = self.image, let imageURL = detail.image {
+            imageView.af_setImage(withURL: URL(string: imageURL)!, completion: { _ in
+                imageView.startAnimating()
+                let height = (imageView.frame.width/16)*9
+                let size = imageView.sizeThatFits(CGSize(width: imageView.frame.width, height: height))
+                imageView.draw(CGRect(origin: imageView.frame.origin, size: size))
+                imageView.stopAnimating()
+            })
         }
     }
 
@@ -52,6 +63,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = NCColor.custom
         navigationController?.navigationBar.tintColor = UIColor.lightText
+        let size = image.sizeThatFits(CGSize(width: 0, height: 0))
+        image.draw(CGRect(origin: image.frame.origin, size: size))
         // Do any additional setup after loading the view, typically from a nib.
         configureView()
     }
@@ -75,7 +88,7 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func selectedShare(_ sender: Any) {
-        let textToShare = (detailItem?.title)! + " - " + (detailItem?.parent?.title)!
+        let textToShare = (detailItem?.title)! + " - " + (detailItem?.parent.title)!
 
         if let myWebsite = NSURL(string: (detailItem?.url)!) {
             let objectsToShare = [textToShare, myWebsite] as [Any]

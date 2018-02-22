@@ -12,8 +12,9 @@
         </attribute>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ordering" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="parentID" optional="YES" transient="YES" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="pinned" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
         <attribute name="unreadCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FeedItem" inverseName="parent" inverseEntity="FeedItem" syncable="YES"/>
@@ -27,7 +28,7 @@
         <attribute name="fingerprint" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="guid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="guidHash" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES">
             <userInfo>
                 <entry key="sync.isPrimaryKey" value="true"/>
             </userInfo>
@@ -35,17 +36,18 @@
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastModified" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="lead" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parentID" optional="YES" transient="YES" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="pubDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="rtl" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="starred" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rtl" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="starred" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="unread" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unread" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="updateDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Feed" inverseName="children" inverseEntity="Feed" syncable="YES"/>
+        <relationship name="parent" maxCount="1" deletionRule="Nullify" destinationEntity="Feed" inverseName="children" inverseEntity="Feed" syncable="YES"/>
     </entity>
     <entity name="Folder" representedClassName=".Folder" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES">
             <userInfo>
                 <entry key="sync.isPrimaryKey" value="true"/>
             </userInfo>
@@ -54,8 +56,8 @@
         <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Feed" inverseName="parent" inverseEntity="Feed" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Feed" positionX="261" positionY="189" width="128" height="210"/>
-        <element name="FeedItem" positionX="279" positionY="279" width="128" height="315"/>
+        <element name="Feed" positionX="261" positionY="189" width="128" height="225"/>
+        <element name="FeedItem" positionX="279" positionY="279" width="128" height="330"/>
         <element name="Folder" positionX="261" positionY="261" width="128" height="90"/>
     </elements>
 </model>
