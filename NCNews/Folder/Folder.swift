@@ -27,12 +27,20 @@ class Folder: NSManagedObject, NCNewsObject {
         })
         return ids
     }
+    
+    func getUnread() -> Int {
+        var unread: Int = 0
+        self.children?.forEach({ item in
+            unread += item.getUnread()
+        })
+        return unread
+    }
 
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)
     }
 
-    override func fill(with json: [String: Any]) {
+    func fill(with json: [String: Any]) {
         if let id = json["id"] as? NSNumber {
             self.id = id.int64Value
         }

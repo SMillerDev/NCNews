@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import Sync
+import TDBadgedCell
 
 class ListViewController<T: NCNewsObject>: UITableViewController, NSFetchedResultsControllerDelegate {
 
@@ -17,8 +17,11 @@ class ListViewController<T: NCNewsObject>: UITableViewController, NSFetchedResul
     }()
 
     var parentObject: NCNewsObject?
+    
+    lazy internal var appDel: AppDelegate = {
+        return (UIApplication.shared.delegate as? AppDelegate)!
+    }()
     lazy var context: NSManagedObjectContext = {
-        let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
         return appDel.persistentContainer!.viewContext
     }()
 
@@ -35,13 +38,16 @@ class ListViewController<T: NCNewsObject>: UITableViewController, NSFetchedResul
         }
 
         // Initialize Fetched Results Controller
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.context, sectionNameKeyPath: nil, cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
+                                                                  managedObjectContext: self.context,
+                                                                  sectionNameKeyPath: nil,
+                                                                  cacheName: nil)
         fetchedResultsController.delegate = self
 
         return fetchedResultsController
     }()
 
-    func setupCell(_ cell: UITableViewCell, item: T?) {
+    func setupCell(_ cell: TDBadgedCell, item: T?) {
         cell.textLabel?.text = item?.title
     }
 
@@ -56,17 +62,26 @@ class ListViewController<T: NCNewsObject>: UITableViewController, NSFetchedResul
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(self.reloadData), for: UIControlEvents.valueChanged)
 
-        reloadData()
+        do {
+            try self.fetchedResultsController.performFetch()
+        } catch let error as NSError {
+            print("Unable to perform fetch: \(error.localizedDescription)")
+        }
     }
 
     @objc func reloadData() {
         refreshControl?.beginRefreshing()
-        do {
-            try fetchedResultsController.performFetch()
-        } catch let error as NSError {
-            print("Unable to perform fetch: \(error.localizedDescription)")
+        appDel.sync?.fetch(T.self).done { _ in
+            do {
+                try self.fetchedResultsController.performFetch()
+            } catch let error as NSError {
+                print("Unable to perform fetch: \(error.localizedDescription)")
+            }
+            self.refreshControl?.endRefreshing()
+        }.catch { error in
+            print("Reload failed: ", error.localizedDescription)
+            self.refreshControl?.endRefreshing()
         }
-        refreshControl?.endRefreshing()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -86,7 +101,7 @@ class ListViewController<T: NCNewsObject>: UITableViewController, NSFetchedResul
         guard let sectionCount = fetchedResultsController.sections?.count else {
             return 0
         }
-        if sectionCount == 0 { TableViewHelper.emptyMessage(self, message: "Sorry, no \(className)s here") }
+        if sectionCount == 0 || fetchedResultsController.sections?[0].numberOfObjects == 0 { TableViewHelper.emptyMessage(self, type: T.self) }
         return sectionCount
     }
 
@@ -99,14 +114,10 @@ class ListViewController<T: NCNewsObject>: UITableViewController, NSFetchedResul
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: className.lowercased() + "Cell", for: indexPath as IndexPath)
-        configureCell(cell: cell, forRowAtIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: className.lowercased() + "Cell", for: indexPath)
+        let item = fetchedResultsController.object(at: indexPath) as? T
+        setupCell(cell as! TDBadgedCell, item: item)
         return cell
-    }
-
-    func configureCell(cell: UITableViewCell, forRowAtIndexPath: IndexPath) {
-        let item = fetchedResultsController.object(at: forRowAtIndexPath) as? T
-        setupCell(cell, item: item)
     }
 
     // MARK: - FetchedResultsController Delegate

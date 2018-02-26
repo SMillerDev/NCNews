@@ -11,7 +11,9 @@
 		1406C4EB200A87A9008FAD6D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406C4E5200A87A9008FAD6D /* Feed.swift */; };
 		1406C4EE200A87A9008FAD6D /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406C4E8200A87A9008FAD6D /* Folder.swift */; };
 		140C1904203388BF00513420 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C1903203388BF00513420 /* TableViewHelper.swift */; };
-		1453376A2028548600C62602 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145337692028548600C62602 /* Utils.swift */; };
+		140F7AEA2043EFC200B84EC5 /* FetchRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140F7AE92043EFC200B84EC5 /* FetchRange.swift */; };
+		1432C23B2042C1E100EF9995 /* NotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432C23A2042C1E100EF9995 /* NotificationUtils.swift */; };
+		1453376A2028548600C62602 /* SyncUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145337692028548600C62602 /* SyncUtils.swift */; };
 		1468E853201875EA00533653 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1468E852201875EA00533653 /* Settings.bundle */; };
 		146BB5B2203F18CC00E78EED /* LeadFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146BB5B1203F18CC00E78EED /* LeadFinder.swift */; };
 		147078D420210621005836B9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147078D320210621005836B9 /* ListViewController.swift */; };
@@ -84,7 +86,9 @@
 		1406C4E5200A87A9008FAD6D /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		1406C4E8200A87A9008FAD6D /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		140C1903203388BF00513420 /* TableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
-		145337692028548600C62602 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		140F7AE92043EFC200B84EC5 /* FetchRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRange.swift; sourceTree = "<group>"; };
+		1432C23A2042C1E100EF9995 /* NotificationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtils.swift; sourceTree = "<group>"; };
+		145337692028548600C62602 /* SyncUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncUtils.swift; sourceTree = "<group>"; };
 		1468E852201875EA00533653 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		146BB5B1203F18CC00E78EED /* LeadFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadFinder.swift; sourceTree = "<group>"; };
 		147078D320210621005836B9 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -188,12 +192,14 @@
 		140433922036CED9001231AF /* Sync */ = {
 			isa = PBXGroup;
 			children = (
-				145337692028548600C62602 /* Utils.swift */,
+				145337692028548600C62602 /* SyncUtils.swift */,
 				35CDFCE0B9BD5635B290E4AD /* NCNewsObject.swift */,
 				149F614B2025DCD8003D8C92 /* Sync.swift */,
 				14F268A320078C130057C660 /* NetworkManager.swift */,
 				14FF37DF200A2B7B00443AB1 /* NetworkConvenience.swift */,
 				149F61492025DC0C003D8C92 /* DBManager.swift */,
+				1432C23A2042C1E100EF9995 /* NotificationUtils.swift */,
+				140F7AE92043EFC200B84EC5 /* FetchRange.swift */,
 			);
 			path = Sync;
 			sourceTree = "<group>";
@@ -622,10 +628,8 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
-				"${BUILT_PRODUCTS_DIR}/DATASource/DATASource.framework",
 				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Sync/Sync.framework",
 				"${BUILT_PRODUCTS_DIR}/TDBadgedCell/TDBadgedCell.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -633,10 +637,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DATASource.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sync.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TDBadgedCell.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -701,8 +703,9 @@
 			files = (
 				14F268A420078C130057C660 /* NetworkManager.swift in Sources */,
 				14FF37EC200A456400443AB1 /* OauthController.swift in Sources */,
+				140F7AEA2043EFC200B84EC5 /* FetchRange.swift in Sources */,
 				14F0BA8F2011364A00E79715 /* SettingsViewController.swift in Sources */,
-				1453376A2028548600C62602 /* Utils.swift in Sources */,
+				1453376A2028548600C62602 /* SyncUtils.swift in Sources */,
 				149F614A2025DC0C003D8C92 /* DBManager.swift in Sources */,
 				149473B92006945B00BB93E4 /* AppDelegate.swift in Sources */,
 				14FF37E0200A2B7B00443AB1 /* NetworkConvenience.swift in Sources */,
@@ -714,6 +717,7 @@
 				147078D420210621005836B9 /* ListViewController.swift in Sources */,
 				14FF37E5200A3EEC00443AB1 /* KeychainPasswordItem.swift in Sources */,
 				149F614C2025DCD8003D8C92 /* Sync.swift in Sources */,
+				1432C23B2042C1E100EF9995 /* NotificationUtils.swift in Sources */,
 				149022C3200E87FE00D43050 /* ItemViewController.swift in Sources */,
 				14FF37F0200A5D9800443AB1 /* BasicAuthAdapter.swift in Sources */,
 				146BB5B2203F18CC00E78EED /* LeadFinder.swift in Sources */,

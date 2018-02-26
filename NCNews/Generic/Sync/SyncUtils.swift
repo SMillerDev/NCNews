@@ -17,12 +17,21 @@ class Utils {
         }
         return fullName
     }
-
-    static func jsonCast<T>(_ classType: T, json: [String: Any], item: String) -> T? {
-        return json[item] as? T
-    }
-
-    static func jsonForceCast<T>(_ classType: T, json: [String: Any], item: String) -> T {
-        return Utils.jsonCast(T.self, json: json, item: item) as! T
+    
+    static func getUnread(_ array: [NCNewsObject]) -> Int {
+        if array.isEmpty {
+            return 0
+        }
+        if let first = array.first, first is Feed || first is Folder {
+            return 0
+        }
+        var unread = 0
+        array.forEach { object in
+            let object = object as! FeedItem
+            if object.unread {
+                unread += 1
+            }
+        }
+        return unread
     }
 }

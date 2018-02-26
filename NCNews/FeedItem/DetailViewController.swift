@@ -8,18 +8,19 @@
 
 import UIKit
 import SafariServices
+import AlamofireImage
 
 class DetailViewController: UIViewController {
 
     var detailItem: FeedItem?
-    
+
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var feedLabel: UILabel!
     @IBOutlet weak var itemBody: UILabel!
-    
+
     func configureView() {
         // Update the user interface for the detail item.
         guard let detail = detailItem else {
@@ -48,14 +49,11 @@ class DetailViewController: UIViewController {
         if let label = feedLabel, let title = detail.parent.title {
             label.text = title
         }
-        if let imageView = self.image, let imageURL = detail.image {
-            imageView.af_setImage(withURL: URL(string: imageURL)!, completion: { _ in
-                imageView.startAnimating()
-                let height = (imageView.frame.width/16)*9
-                let size = imageView.sizeThatFits(CGSize(width: imageView.frame.width, height: height))
-                imageView.draw(CGRect(origin: imageView.frame.origin, size: size))
-                imageView.stopAnimating()
-            })
+        if let imageView = self.image, let imageSting = detail.image, let imageURL = URL(string: imageSting) {
+            let filter: ImageFilter = AspectScaledToFillSizeFilter(size: imageView.frame.size)
+            imageView.af_setImage(withURL: imageURL, filter: filter)
+        } else {
+            self.image.removeFromSuperview()
         }
     }
 
@@ -63,9 +61,6 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = NCColor.custom
         navigationController?.navigationBar.tintColor = UIColor.lightText
-        let size = image.sizeThatFits(CGSize(width: 0, height: 0))
-        image.draw(CGRect(origin: image.frame.origin, size: size))
-        // Do any additional setup after loading the view, typically from a nib.
         configureView()
     }
 

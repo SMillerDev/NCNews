@@ -44,7 +44,7 @@ class FeedItem: NSManagedObject, NCNewsObject {
 
     @NSManaged public var parent: Feed
 
-    override func fill(with json: [String: Any]) {
+    func fill(with json: [String: Any]) {
         if let item = json["id"] as? NSNumber {
             self.id = item.int64Value
         }

@@ -8,21 +8,19 @@
 
 import UIKit
 import CoreData
-import Sync
 import AlamofireImage
 import TDBadgedCell
 
 class FeedViewController: ListViewController<Feed> {
 
-    override func setupCell(_ cell: UITableViewCell, item: Feed?) {
+    override func setupCell(_ cell: TDBadgedCell, item: Feed?) {
         super.setupCell(cell, item: item)
-        let cell = cell as! TDBadgedCell
         if let favicon = item?.faviconLink {
             let url = URL(string: favicon)!
-            cell.imageView?.af_setImage(withURL: url, placeholderImage: UIImage(named: "RSS")!)
+            let filter: ImageFilter = AspectScaledToFillSizeFilter(size: CGSize(width: 48, height: 48))
+            cell.imageView?.af_setImage(withURL: url, placeholderImage: UIImage(named: "RSS")!, filter: filter)
         }
-        cell.textLabel?.text = item?.title
-        if let unread = item?.unreadCount, unread > 0 {
+        if let unread = item?.getUnread(), unread > 0 {
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: (cell.textLabel?.font.pointSize)!)
             cell.badgeString = String(describing: unread)
             cell.badgeColor = NCColor.custom
@@ -36,10 +34,9 @@ class FeedViewController: ListViewController<Feed> {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = tableView.indexPathForSelectedRow else {
+        guard let indexPath = tableView.indexPathForSelectedRow, let object = fetchedResultsController.object(at: indexPath) as? Feed else {
             return
         }
-        let object = fetchedResultsController.object(at: indexPath) as! Feed
 
         if segue.identifier == "showArticles" {
             let controller: ItemViewController? = (segue.destination as? UINavigationController)?.topViewController as? ItemViewController

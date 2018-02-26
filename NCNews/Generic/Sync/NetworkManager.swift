@@ -62,11 +62,15 @@ class NetworkManager {
         }
     }
 
-    func items(read: Bool = true, starred: Bool = false) -> Promise<[[String: Any]]?> {
-        var param: Parameters = ["getRead": read, "type": 3]
-        if starred {
+    func items(_ range: FetchRange? = nil) -> Promise<[[String: Any]]?> {
+        var param: Parameters = ["getRead": true, "type": 3]
+        if range != nil && range == FetchRange.starred {
             param["type"] = 2
         }
+        if range != nil && range == FetchRange.unread {
+            param["getRead"] = false
+        }
+
         return sessionManager.request(baseUrl.appendingPathComponent("/items"), parameters: param)
                              .responseJSON()
                              .then { (response) -> Promise<[[String: Any]]?> in

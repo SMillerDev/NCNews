@@ -36,22 +36,23 @@ class DBManager {
         }
     }
 
-    func saveToDB<T: NSManagedObject>(_ type: T.Type, array: [[String: Any]]?) -> Promise<Void> {
+    func saveToDB<T: NSManagedObject>(_ type: T.Type, array: [[String: Any]]?) -> Promise<[NCNewsObject]> {
         if array == nil {
             debugPrint("No value to store")
-            return .value(Void())
+            return .value([])
         }
         return Promise { seal in
             container.performBackgroundTask { context in
-                self.loop(type, array: array!, context: context)
-                seal.fulfill(Void())
+                let result: [NCNewsObject] = self.loop(type, array: array!, context: context)
+                seal.fulfill(result)
             }
         }
     }
 
-    internal func loop<T: NSManagedObject>(_ type: T.Type, array: [[String: Any]], context: NSManagedObjectContext) {
+    internal func loop<T: NSManagedObject>(_ type: T.Type, array: [[String: Any]], context: NSManagedObjectContext) -> [NCNewsObject] {
         context.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
         context.automaticallyMergesChangesFromParent = true
+        var result: [NCNewsObject] = []
         let name = Utils.className(classType: type)
         debugPrint("filling", array.count)
         for object in array {
@@ -62,11 +63,13 @@ class DBManager {
                 newObject = NSManagedObject(entity: T.entity(), insertInto: context) as? NCNewsObject
             }
             newObject!.fill(with: object)
+            result.append(newObject!)
         }
         debugPrint("created/updated", array.count, name)
         self.save(context)
+        return result
     }
-    
+
     static func managedObject<T: NSManagedObject>(id: NSNumber, context: NSManagedObjectContext, type: T.Type, name: String? = nil) -> T? {
         let name: String = name == nil ? type.entity().name! : name!
         let fetchRequest = T.fetchRequest()

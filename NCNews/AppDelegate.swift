@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
 //        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
 //        debugPrint(paths[0])
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         NetworkActivityIndicatorManager.shared.isEnabled = true
         setupCoreData()
         return true
@@ -38,6 +39,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func applicationWillTerminate(_ application: UIApplication) {
         self.saveContext()
+    }
+
+    // Support for background fetch
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        guard let splitview = window?.rootViewController as? UISplitViewController else {
+            completionHandler(.failed)
+            return
+        }
+        let viewControllers = splitview.viewControllers
+        for viewController in viewControllers {
+            if let listviewController = viewController as? ListViewController<FeedItem> {
+                sync!.fetch(FeedItem.self).done {_ -> Void in
+                    listviewController.reloadData()
+                    return completionHandler(.newData)
+                }.catch { _ in
+                    completionHandler(.failed)
+                }
+            } else if let listviewController = viewController as? ListViewController<Feed> {
+                sync!.fetch(Feed.self).done {_ -> Void in
+                    listviewController.reloadData()
+                    return completionHandler(.newData)
+                }.catch { _ in
+                    completionHandler(.failed)
+                }
+            } else if let listviewController = viewController as? ListViewController<Folder> {
+                sync!.fetch(Folder.self).done {_ -> Void in
+                    listviewController.reloadData()
+                    return completionHandler(.newData)
+                }.catch { _ in
+                    completionHandler(.failed)
+                }
+            } else if let detailView: DetailViewController = viewController as? DetailViewController {
+                sync!.fetch(FeedItem.self).done {_ in
+                    detailView.configureView()
+                    return completionHandler(.newData)
+                }.catch { _ in
+                    completionHandler(.failed)
+                }
+            }
+        }
     }
 
     // MARK: - Split view

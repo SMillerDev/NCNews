@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import PromiseKit
 
 extension NetworkManager {
     static func getColor(url: String, completionHandler: @escaping (UIColor) -> Void) {
