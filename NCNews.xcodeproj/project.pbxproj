@@ -17,6 +17,7 @@
 		1468E853201875EA00533653 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1468E852201875EA00533653 /* Settings.bundle */; };
 		146BB5B2203F18CC00E78EED /* LeadFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146BB5B1203F18CC00E78EED /* LeadFinder.swift */; };
 		147078D420210621005836B9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147078D320210621005836B9 /* ListViewController.swift */; };
+		148B4011204EF1D50086BD1B /* CanReloadProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B4010204EF1D50086BD1B /* CanReloadProtocol.swift */; };
 		149022C1200E873700D43050 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149022C0200E873700D43050 /* FeedViewController.swift */; };
 		149022C3200E87FE00D43050 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149022C2200E87FE00D43050 /* ItemViewController.swift */; };
 		149473B92006945B00BB93E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149473B82006945B00BB93E4 /* AppDelegate.swift */; };
@@ -92,6 +93,7 @@
 		1468E852201875EA00533653 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		146BB5B1203F18CC00E78EED /* LeadFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadFinder.swift; sourceTree = "<group>"; };
 		147078D320210621005836B9 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		148B4010204EF1D50086BD1B /* CanReloadProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanReloadProtocol.swift; sourceTree = "<group>"; };
 		149022C0200E873700D43050 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		149022C2200E87FE00D43050 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		149473B52006945B00BB93E4 /* NCNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NCNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +214,7 @@
 				140C1903203388BF00513420 /* TableViewHelper.swift */,
 				149473C12006945B00BB93E4 /* Main.storyboard */,
 				14F0BA8C2010EFF500E79715 /* NCColor.swift */,
+				148B4010204EF1D50086BD1B /* CanReloadProtocol.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 				146BB5B2203F18CC00E78EED /* LeadFinder.swift in Sources */,
 				1406C4EA200A87A9008FAD6D /* FeedItem.swift in Sources */,
 				14F0BA8D2010EFF500E79715 /* NCColor.swift in Sources */,
+				148B4011204EF1D50086BD1B /* CanReloadProtocol.swift in Sources */,
 				140C1904203388BF00513420 /* TableViewHelper.swift in Sources */,
 				149022C1200E873700D43050 /* FeedViewController.swift in Sources */,
 				14F268A1200699C50057C660 /* LoginViewController.swift in Sources */,

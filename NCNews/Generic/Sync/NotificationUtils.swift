@@ -10,15 +10,21 @@ import UIKit
 import UserNotifications
 
 class NotificationUtils: Any {
-    class func setBadgeIndicatorCount(_ badgeCount: Int) {
-        let application = UIApplication.shared
-        if #available(iOS 10.0, *) {
-            let center = UNUserNotificationCenter.current()
-            center.requestAuthorization(options: [.badge, .alert, .sound]) { _, _ in }
-        } else {
-            application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
+    static var badgeIndicatorCount: Int {
+        set(badgeCount) {
+            let application = UIApplication.shared
+            if #available(iOS 10.0, *) {
+                let center = UNUserNotificationCenter.current()
+                center.requestAuthorization(options: [.badge, .alert, .sound]) { _, _ in }
+            } else {
+                application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
+            }
+            application.registerForRemoteNotifications()
+            application.applicationIconBadgeNumber = badgeCount
         }
-        application.registerForRemoteNotifications()
-        application.applicationIconBadgeNumber = badgeCount
+        get {
+            let application = UIApplication.shared
+            return application.applicationIconBadgeNumber
+        }
     }
 }

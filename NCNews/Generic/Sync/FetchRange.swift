@@ -12,4 +12,5 @@ enum FetchRange {
     case starred
     case unread
     case other
+    case none
 }

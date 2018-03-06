@@ -44,7 +44,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8m-BX-eBn">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="b8m-BX-eBn">
                                 <rect key="frame" x="0.0" y="140" width="375" height="594"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IdP-ZV-Fin">
@@ -60,13 +60,13 @@
                                                 <rect key="frame" x="0.0" y="211" width="375" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12-01-2014 12:55" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUq-A0-aMR" userLabel="Date Label">
-                                                        <rect key="frame" x="8" y="7.9999999999999991" width="107.66666666666667" height="15.666666666666664"/>
+                                                        <rect key="frame" x="8" y="7.9999999999999991" width="169.66666666666666" height="15.666666666666664"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some Feed" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wV-NL-h1E" userLabel="Feed Label">
-                                                        <rect key="frame" x="259.33333333333331" y="7.9999999999999991" width="107.66666666666669" height="15.666666666666664"/>
+                                                        <rect key="frame" x="197.66666666666663" y="7.9999999999999991" width="169.33333333333337" height="15.666666666666664"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -90,7 +90,7 @@
                                                     <constraint firstItem="ffM-M9-s1V" firstAttribute="top" secondItem="YE8-lE-rra" secondAttribute="bottom" constant="8" id="568-Xt-gWi"/>
                                                     <constraint firstAttribute="height" constant="110" id="5t2-Qo-Gbi"/>
                                                     <constraint firstAttribute="trailing" secondItem="YE8-lE-rra" secondAttribute="trailing" constant="8" id="5tC-sn-vhb"/>
-                                                    <constraint firstItem="1wV-NL-h1E" firstAttribute="leading" secondItem="ZUq-A0-aMR" secondAttribute="trailing" constant="143.66666666666663" id="FzU-RS-ANS"/>
+                                                    <constraint firstItem="1wV-NL-h1E" firstAttribute="leading" secondItem="ZUq-A0-aMR" secondAttribute="trailing" constant="20" id="FzU-RS-ANS"/>
                                                     <constraint firstItem="ZUq-A0-aMR" firstAttribute="leading" secondItem="biO-q8-NZc" secondAttribute="leading" constant="8" id="Hvi-6h-8Ty"/>
                                                     <constraint firstAttribute="trailing" secondItem="1wV-NL-h1E" secondAttribute="trailing" constant="8" id="MIZ-uY-pNe"/>
                                                     <constraint firstAttribute="trailing" secondItem="ffM-M9-s1V" secondAttribute="trailing" constant="8" id="VLR-rF-Nkp"/>
@@ -197,6 +197,7 @@ Praesent id sapien vitae purus tempor malesuada. Aliquam vel maximus urna. Duis 
                         <outlet property="feedLabel" destination="1wV-NL-h1E" id="k7U-5V-9E9"/>
                         <outlet property="image" destination="fOL-vz-UgF" id="XUY-gh-ZL6"/>
                         <outlet property="itemBody" destination="gnR-Df-ENa" id="VXU-gM-lPa"/>
+                        <outlet property="scrollView" destination="b8m-BX-eBn" id="9c0-y2-aPG"/>
                         <outlet property="titleLabel" destination="YE8-lE-rra" id="MFM-SQ-t7P"/>
                     </connections>
                 </viewController>
@@ -374,6 +375,7 @@ Praesent id sapien vitae purus tempor malesuada. Aliquam vel maximus urna. Duis 
             <objects>
                 <splitViewController id="H1p-Uh-vWS" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="UgS-k4-veB"/>
                     <connections>
                         <segue destination="RMx-3f-FxP" kind="relationship" relationship="masterViewController" id="BlO-5A-QYV"/>
                         <segue destination="vC3-pB-5Vb" kind="relationship" relationship="detailViewController" id="Tll-UG-LXB"/>
@@ -619,7 +621,7 @@ Praesent id sapien vitae purus tempor malesuada. Aliquam vel maximus urna. Duis 
         <!--Login navigator-->
         <scene sceneID="wS7-wW-W1K">
             <objects>
-                <navigationController title="Nextcloud login" automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenKeyboardAppears="YES" id="rbb-Ul-wGL" userLabel="Login navigator" sceneMemberID="viewController">
+                <navigationController title="Nextcloud login" automaticallyAdjustsScrollViewInsets="NO" id="rbb-Ul-wGL" userLabel="Login navigator" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="vhb-O2-N60">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -636,7 +638,7 @@ Praesent id sapien vitae purus tempor malesuada. Aliquam vel maximus urna. Duis 
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="OFa-Xv-IeV" kind="relationship" relationship="rootViewController" id="7tV-5e-2a9"/>
+                        <segue destination="OFa-Xv-IeV" kind="relationship" relationship="rootViewController" id="EAg-CH-6iX"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPi-Nc-SdK" userLabel="First Responder" sceneMemberID="firstResponder"/>

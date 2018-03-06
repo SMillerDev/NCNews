@@ -15,7 +15,7 @@ class FolderViewController: ListViewController<Folder> {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "showFeeds", sender: nil)
     }
-    
+
     override func setupCell(_ cell: TDBadgedCell, item: Folder?) {
         super.setupCell(cell, item: item)
         if let unread = item?.getUnread(), unread > 0 {

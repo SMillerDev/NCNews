@@ -48,7 +48,7 @@ class Feed: NSManagedObject, NCNewsObject {
         })
         return ids
     }
-    
+
     func getUnread() -> Int {
         var unread: Int = 0
         self.children?.forEach({ item in

@@ -47,7 +47,11 @@ extension LoginViewController {
     internal func auth(_ url: URL, user: String, password: String) {
         UserDefaults.standard.set(true, forKey: DefaultConstants.didLogin)
         self.delegate?.sync = Sync(url, container: (self.delegate?.persistentContainer)!, user: user, pass: password)
-        self.delegate?.sync?.fullSync()
+        self.delegate?.sync?.refresh().done {
+            print("Fetched new items")
+        }.catch { error in
+            print(error.localizedDescription)
+        }
         self.performSegue(withIdentifier: "logginSegue", sender: nil)
     }
 

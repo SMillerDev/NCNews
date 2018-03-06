@@ -16,23 +16,29 @@ class DBManager {
         self.container = container
     }
 
-    func markRead(_ object: NCNewsObject?, read: Bool = true) {
-        container.performBackgroundTask { context in
-            if let folder = object as? Folder {
-                folder.children?.forEach({ item in
-                    self.markRead(item as NCNewsObject, read: read)
-                })
+    func markRead(_ object: NCNewsObject?, status: Bool = true) -> Promise<NCNewsObject?> {
+        return Promise { bridge in
+            if object == nil {
+                bridge.reject(UploadError())
             }
-            if let feed = object as? Feed {
-                feed.children?.forEach({ item in
-                    self.markRead(item as NCNewsObject, read: read)
-                })
-                feed.unreadCount = 0
+            container.performBackgroundTask { context in
+                if let folder = object as? Folder {
+                    folder.children?.forEach({ item in
+                        self.markRead(item as NCNewsObject, status: status)
+                    })
+                }
+                if let feed = object as? Feed {
+                    feed.children?.forEach { item in
+                        self.markRead(item as NCNewsObject, status: status)
+                    }
+                    feed.unreadCount = 0
+                }
+                if let item = object as? FeedItem {
+                    item.unread = !status
+                }
+                self.save(context)
+                bridge.fulfill(object)
             }
-            if let item = object as? FeedItem {
-                item.unread = read
-            }
-            self.save(context)
         }
     }
 
@@ -57,7 +63,7 @@ class DBManager {
         debugPrint("filling", array.count)
         for object in array {
             var newObject: NCNewsObject?
-            if let item = DBManager.managedObject(id: object["id"] as! NSNumber, context: context, type: T.self, name: name) {
+            if let item = DBManager.managedObject(id: object["id"] as? NSNumber, context: context, type: T.self, name: name) {
                 newObject = item as? NCNewsObject
             } else {
                 newObject = NSManagedObject(entity: T.entity(), insertInto: context) as? NCNewsObject
@@ -70,7 +76,10 @@ class DBManager {
         return result
     }
 
-    static func managedObject<T: NSManagedObject>(id: NSNumber, context: NSManagedObjectContext, type: T.Type, name: String? = nil) -> T? {
+    static func managedObject<T: NSManagedObject>(id: NSNumber?, context: NSManagedObjectContext, type: T.Type, name: String? = nil) -> T? {
+        guard let id = id else {
+            return nil
+        }
         let name: String = name == nil ? type.entity().name! : name!
         let fetchRequest = T.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id==%i", id.int64Value)

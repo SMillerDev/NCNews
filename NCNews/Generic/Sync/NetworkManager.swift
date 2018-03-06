@@ -62,12 +62,12 @@ class NetworkManager {
         }
     }
 
-    func items(_ range: FetchRange? = nil) -> Promise<[[String: Any]]?> {
+    func items(_ range: FetchRange) -> Promise<[[String: Any]]?> {
         var param: Parameters = ["getRead": true, "type": 3]
-        if range != nil && range == FetchRange.starred {
+        if range == FetchRange.starred {
             param["type"] = 2
         }
-        if range != nil && range == FetchRange.unread {
+        if range == FetchRange.unread {
             param["getRead"] = false
         }
 

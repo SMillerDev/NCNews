@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import OAuthSwift
 import AlamofireNetworkActivityIndicator
+import PromiseKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -37,6 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return true
     }
 
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        let viewController = (window?.rootViewController as! UISplitViewController).viewControllers.first as! DetailViewController
+        viewController.restoreUserActivityState(userActivity)
+
+        return true
+    }
+
     func applicationWillTerminate(_ application: UIApplication) {
         self.saveContext()
     }
@@ -49,34 +57,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
         let viewControllers = splitview.viewControllers
         for viewController in viewControllers {
-            if let listviewController = viewController as? ListViewController<FeedItem> {
-                sync!.fetch(FeedItem.self).done {_ -> Void in
-                    listviewController.reloadData()
-                    return completionHandler(.newData)
-                }.catch { _ in
+            guard let listViewController = viewController as? CanReloadView else {
+                return
+            }
+            sync!.items(.unread).done { items in
+                NotificationUtils.badgeIndicatorCount = items.count
+                listViewController.reloadData(false)
+                completionHandler(.newData)
+            }.catch { _ in
                     completionHandler(.failed)
-                }
-            } else if let listviewController = viewController as? ListViewController<Feed> {
-                sync!.fetch(Feed.self).done {_ -> Void in
-                    listviewController.reloadData()
-                    return completionHandler(.newData)
-                }.catch { _ in
-                    completionHandler(.failed)
-                }
-            } else if let listviewController = viewController as? ListViewController<Folder> {
-                sync!.fetch(Folder.self).done {_ -> Void in
-                    listviewController.reloadData()
-                    return completionHandler(.newData)
-                }.catch { _ in
-                    completionHandler(.failed)
-                }
-            } else if let detailView: DetailViewController = viewController as? DetailViewController {
-                sync!.fetch(FeedItem.self).done {_ in
-                    detailView.configureView()
-                    return completionHandler(.newData)
-                }.catch { _ in
-                    completionHandler(.failed)
-                }
             }
         }
     }

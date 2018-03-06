@@ -23,11 +23,17 @@ class ItemViewController: ListViewController<FeedItem> {
             let filter: ImageFilter = AspectScaledToFillSizeFilter(size: CGSize(width: 48, height: 48))
             cell.imageView?.af_setImage(withURL: URL(string: url)!, placeholderImage: UIImage(named: "News")!, filter: filter)
         }
+
         if let unread = item?.unread, unread {
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: (cell.textLabel?.font.pointSize)!)
+        } else {
+            cell.textLabel?.font = UIFont.systemFont(ofSize: (cell.textLabel?.font.pointSize)!)
         }
+
         if let starred = item?.starred, starred {
-            cell.badgeString = "⭐︎"
+            cell.badgeString = "⭐️"
+        } else {
+            cell.badgeString = ""
         }
     }
 
@@ -57,15 +63,13 @@ class ItemViewController: ListViewController<FeedItem> {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let object = self.fetchedResultsController.object(at: indexPath)
-                delegate?.sync?.markRead(object as? FeedItem)
-                let controller = (segue.destination as? UINavigationController)?.topViewController as? DetailViewController
-                controller?.detailItem = object as? FeedItem
-                controller?.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller?.navigationItem.leftItemsSupplementBackButton = true
-            }
+        if segue.identifier == "showDetail", let indexPath = tableView.indexPathForSelectedRow {
+            let object = self.fetchedResultsController.object(at: indexPath)
+            delegate?.sync?.markRead(object as? FeedItem)
+            let controller = (segue.destination as? UINavigationController)?.topViewController as? DetailViewController
+            controller?.detailItem = object as? FeedItem
+            controller?.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+            controller?.navigationItem.leftItemsSupplementBackButton = true
         }
     }
 

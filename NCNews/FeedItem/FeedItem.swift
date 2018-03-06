@@ -57,9 +57,15 @@ class FeedItem: NSManagedObject, NCNewsObject {
         self.url = json["url"] as? String
         self.title = json["title"] as? String
         self.author = json["author"] as? String
-        self.pubDate = json["pubDate"] as? NSDate
-        self.updateDate = json["updateDate"] as? NSDate
-        self.lastModified = json["lastModified"] as? NSDate
+        if let pubDate = json["pubDate"] as? Double {
+            self.pubDate = Date(timeIntervalSince1970: pubDate) as NSDate
+        }
+        if let updateDate = json["updateDate"] as? Double {
+            self.updateDate = Date(timeIntervalSince1970: updateDate) as NSDate
+        }
+        if let lastModified = json["lastModified"] as? Double {
+            self.lastModified = Date(timeIntervalSince1970: lastModified) as NSDate
+        }
         self.unread = json["unread"] as? Bool ?? true
         self.starred = json["starred"] as? Bool ?? false
         self.rtl = json["rtl"] as? Bool ?? false

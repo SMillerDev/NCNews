@@ -26,7 +26,11 @@ extension LoginViewController {
             success: { credential, _, _ in
                 self.delegate?.sync = Sync(url, container: (self.delegate?.persistentContainer)!, token: credential.oauthToken)
                 UserDefaults.standard.set(true, forKey: DefaultConstants.didLogin)
-                self.delegate?.sync?.fullSync()
+                self.delegate?.sync?.refresh().done {
+                    print("Fetched new items")
+                }.catch { error in
+                        print(error.localizedDescription)
+                }
                 self.performSegue(withIdentifier: "logginSegue", sender: nil)
         },
             failure: { error in

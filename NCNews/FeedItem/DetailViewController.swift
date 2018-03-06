@@ -10,10 +10,12 @@ import UIKit
 import SafariServices
 import AlamofireImage
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIScrollViewDelegate, CanReloadView {
+    var dataType: NCNewsObject.Type = FeedItem.self
 
     var detailItem: FeedItem?
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -21,14 +23,19 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var feedLabel: UILabel!
     @IBOutlet weak var itemBody: UILabel!
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
     func configureView() {
         // Update the user interface for the detail item.
         guard let detail = detailItem else {
             return
         }
         if let label = itemBody, let body = detail.body {
-            label.attributedText = stringFromHtml(string: body)
+            label.attributedText = ImageFinder.stringFromHtmlString(body)
             label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+            label.isUserInteractionEnabled = true
             label.sizeToFit()
             self.view.sizeToFit()
         }
@@ -53,7 +60,7 @@ class DetailViewController: UIViewController {
             let filter: ImageFilter = AspectScaledToFillSizeFilter(size: imageView.frame.size)
             imageView.af_setImage(withURL: imageURL, filter: filter)
         } else {
-            self.image.removeFromSuperview()
+            image.removeFromSuperview()
         }
     }
 
@@ -61,6 +68,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = NCColor.custom
         navigationController?.navigationBar.tintColor = UIColor.lightText
+        itemBody.isUserInteractionEnabled = true
+        scrollView.delegate = self
         configureView()
     }
 
@@ -69,10 +78,16 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func reloadData(_ pull: Bool = true) {
+        configureView()
+    }
+
     @IBAction func selectedFontSize(_ sender: Any) {
+        print("User wants to change font")
     }
 
     @IBAction func selectedFavorite(_ sender: Any) {
+        print("User wants to favorite")
     }
 
     @IBAction func selectedSafari(_ sender: Any) {
@@ -94,20 +109,18 @@ class DetailViewController: UIViewController {
         }
     }
 
-    private func stringFromHtml(string: String) -> NSAttributedString? {
-        let myRegex = "<img.*?/>"
-        let fix = string.replacingOccurrences(of: myRegex, with: "", options: .regularExpression, range: nil)
-        let data = fix.data(using: .utf16)
-        guard let d = data else {
-            return nil
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if #available(iOS 11.0, *), scrollView.contentOffset.y <= 0 {
+            self.navigationItem.largeTitleDisplayMode = .always
+        } else if #available(iOS 11.0, *), scrollView.contentOffset.y > 0 {
+            self.navigationItem.largeTitleDisplayMode = .never
         }
-        do {
-            let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html]
-            let str = try NSAttributedString(data: d, options: options, documentAttributes: nil)
-            return str
-        } catch {
-        }
-        return nil
+        self.navigationController?.navigationBar.setNeedsLayout()
+        self.view.setNeedsLayout()
+        UIView.animate(withDuration: 0.25, animations: {
+            self.navigationController?.navigationBar.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+        })
     }
 
 }
