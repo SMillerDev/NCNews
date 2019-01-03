@@ -28,11 +28,7 @@ class ListViewController<T>: UITableViewController, NSFetchedResultsControllerDe
 
     internal lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
         let request: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: className)
-        if T.dateSorted {
-            request.sortDescriptors = [NSSortDescriptor(key: "lastModified", ascending: false)]
-        } else {
-            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-        }
+        request.sortDescriptors = [DateSortDescriptor(), NameSortDescriptor()]
 
         if let id = parentObject?.id {
             request.predicate = NSPredicate(format: "parent.id == %d", id)
@@ -79,6 +75,7 @@ class ListViewController<T>: UITableViewController, NSFetchedResultsControllerDe
     }
 
     @objc func reloadData(_ pull: Bool = true) {
+        print("Starting refresh")
         if pull {
             refreshControl?.beginRefreshing()
             appDel.sync?.refresh().done { _ in
@@ -138,8 +135,11 @@ class ListViewController<T>: UITableViewController, NSFetchedResultsControllerDe
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: className.lowercased() + "Cell", for: indexPath)
+        guard let castCell = cell as? TDBadgedCell else {
+            return cell
+        }
         let item = fetchedResultsController.object(at: indexPath) as? T
-        setupCell(cell as! TDBadgedCell, item: item)
+        setupCell(castCell, item: item)
         return cell
     }
 
@@ -170,17 +170,20 @@ class ListViewController<T>: UITableViewController, NSFetchedResultsControllerDe
                     at indexPath: IndexPath?,
                     for type: NSFetchedResultsChangeType,
                     newIndexPath: IndexPath?) {
+        guard let cell = self.tableView.cellForRow(at: newIndexPath!) as? TDBadgedCell else {
+            return
+        }
         // 2
         switch type {
         case .update:
             let item = fetchedResultsController.object(at: indexPath!) as? T
             DispatchQueue.main.async {
-                self.setupCell(self.tableView.cellForRow(at: newIndexPath!) as! TDBadgedCell, item: item)
+                self.setupCell(cell, item: item)
             }
         case .insert:
-            tableView.insertRows(at: [newIndexPath! as IndexPath], with: .automatic)
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
         case .delete:
-            tableView.deleteRows(at: [indexPath! as IndexPath], with: .automatic)
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
         default: break
         }
     }

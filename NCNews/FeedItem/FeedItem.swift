@@ -11,7 +11,6 @@ import CoreData
 import PromiseKit
 
 class FeedItem: NSManagedObject, NCNewsObject {
-    static var dateSorted: Bool = true
     static var parentName: String? = "Feed"
 
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {

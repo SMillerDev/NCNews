@@ -18,6 +18,7 @@
 		146BB5B2203F18CC00E78EED /* LeadFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146BB5B1203F18CC00E78EED /* LeadFinder.swift */; };
 		147078D420210621005836B9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147078D320210621005836B9 /* ListViewController.swift */; };
 		148B4011204EF1D50086BD1B /* CanReloadProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148B4010204EF1D50086BD1B /* CanReloadProtocol.swift */; };
+		148C6EBD2175F56D0013C20E /* SortDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148C6EBC2175F56D0013C20E /* SortDescriptor.swift */; };
 		149022C1200E873700D43050 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149022C0200E873700D43050 /* FeedViewController.swift */; };
 		149022C3200E87FE00D43050 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149022C2200E87FE00D43050 /* ItemViewController.swift */; };
 		149473B92006945B00BB93E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149473B82006945B00BB93E4 /* AppDelegate.swift */; };
@@ -94,6 +95,7 @@
 		146BB5B1203F18CC00E78EED /* LeadFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadFinder.swift; sourceTree = "<group>"; };
 		147078D320210621005836B9 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		148B4010204EF1D50086BD1B /* CanReloadProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanReloadProtocol.swift; sourceTree = "<group>"; };
+		148C6EBC2175F56D0013C20E /* SortDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortDescriptor.swift; sourceTree = "<group>"; };
 		149022C0200E873700D43050 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		149022C2200E87FE00D43050 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		149473B52006945B00BB93E4 /* NCNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NCNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -331,6 +333,7 @@
 		14FF37E8200A41C400443AB1 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				148C6EBC2175F56D0013C20E /* SortDescriptor.swift */,
 				140433922036CED9001231AF /* Sync */,
 				140433932036CEFF001231AF /* UI */,
 			);
@@ -374,7 +377,6 @@
 				149473B22006945B00BB93E4 /* Frameworks */,
 				149473B32006945B00BB93E4 /* Resources */,
 				CB397A87C48531E022F3711E /* [CP] Embed Pods Frameworks */,
-				09D8BA16BC8086FC42A2F3B9 /* [CP] Copy Pods Resources */,
 				145102DC2017E97800027400 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -394,8 +396,6 @@
 				149473CA2006945B00BB93E4 /* Sources */,
 				149473CB2006945B00BB93E4 /* Frameworks */,
 				149473CC2006945B00BB93E4 /* Resources */,
-				EA79DDC82B8E965F96EBB289 /* [CP] Embed Pods Frameworks */,
-				EE83988499EB609DDEA69519 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -415,8 +415,6 @@
 				149473D52006945B00BB93E4 /* Sources */,
 				149473D62006945B00BB93E4 /* Frameworks */,
 				149473D72006945B00BB93E4 /* Resources */,
-				4B858A75E5B300766311DD45 /* [CP] Embed Pods Frameworks */,
-				0DBD43F1CC450F7A4EF3647D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -435,12 +433,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Sean Molenaar";
 				TargetAttributes = {
 					149473B42006945B00BB93E4 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -453,11 +451,13 @@
 					};
 					149473CD2006945B00BB93E4 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 149473B42006945B00BB93E4;
 					};
 					149473D82006945B00BB93E4 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 149473B42006945B00BB93E4;
 					};
@@ -512,36 +512,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		09D8BA16BC8086FC42A2F3B9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NCNews/Pods-NCNews-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0DBD43F1CC450F7A4EF3647D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NCNewsUITests/Pods-NCNewsUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1263CA4287F6E88932AE9FCE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -587,21 +557,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./credits.py -s \"$SRCROOT\" -o \"$SRCROOT/NCNews/Settings.bundle/Credits.plist\"";
-		};
-		4B858A75E5B300766311DD45 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NCNewsUITests/Pods-NCNewsUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		CA63DD80DEF24B5DE57ACCE1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -667,36 +622,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EA79DDC82B8E965F96EBB289 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NCNewsTests/Pods-NCNewsTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EE83988499EB609DDEA69519 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NCNewsTests/Pods-NCNewsTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -731,6 +656,7 @@
 				149022C1200E873700D43050 /* FeedViewController.swift in Sources */,
 				14F268A1200699C50057C660 /* LoginViewController.swift in Sources */,
 				14FF37EA200A41EE00443AB1 /* NextCloudAPIAdapter.swift in Sources */,
+				148C6EBD2175F56D0013C20E /* SortDescriptor.swift in Sources */,
 				14FF37EE200A45F700443AB1 /* BasicAuthController.swift in Sources */,
 				14F0BA992011E03A00E79715 /* ImageFinder.swift in Sources */,
 				1406C4EE200A87A9008FAD6D /* Folder.swift in Sources */,
@@ -795,7 +721,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ENABLE_MODULES = YES;
@@ -804,6 +729,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -811,6 +737,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -844,7 +771,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-Objc";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -857,7 +784,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ENABLE_MODULES = YES;
@@ -866,6 +792,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -873,6 +800,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

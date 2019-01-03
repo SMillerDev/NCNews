@@ -34,12 +34,12 @@ class ImageFinder {
         let myRegex = "<img.*?/>"
         let fix = string.replacingOccurrences(of: myRegex, with: "", options: .regularExpression, range: nil)
         let data = fix.data(using: .utf16)
-        guard let d = data else {
+        guard let fullData = data else {
             return nil
         }
         do {
             let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html]
-            let str = try NSAttributedString(data: d, options: options, documentAttributes: nil)
+            let str = try NSAttributedString(data: fullData, options: options, documentAttributes: nil)
             return str
         } catch {
         }

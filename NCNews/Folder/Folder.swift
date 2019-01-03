@@ -10,7 +10,6 @@ import Foundation
 import CoreData
 
 class Folder: NSManagedObject, NCNewsObject {
-    static var dateSorted: Bool = false
     static var parentName: String?
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Folder> {
         return NSFetchRequest<Folder>(entityName: "Folder")

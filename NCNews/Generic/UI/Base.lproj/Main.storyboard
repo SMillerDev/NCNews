@@ -45,7 +45,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="b8m-BX-eBn">
-                                <rect key="frame" x="0.0" y="140" width="375" height="594"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="646"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IdP-ZV-Fin">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="580.66666666666663"/>
@@ -597,7 +597,7 @@ Praesent id sapien vitae purus tempor malesuada. Aliquam vel maximus urna. Duis 
             <objects>
                 <navigationController title="Detail navigator" id="vC3-pB-5Vb" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" largeTitles="YES" id="DjV-YW-jjY">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.50980392159999999" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -709,6 +709,6 @@ Praesent id sapien vitae purus tempor malesuada. Aliquam vel maximus urna. Duis 
         <image name="Safari" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y6q-Ln-Ljc"/>
+        <segue reference="Tll-UG-LXB"/>
     </inferredMetricsTieBreakers>
 </document>

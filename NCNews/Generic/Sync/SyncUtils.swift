@@ -12,7 +12,10 @@ import MobileCoreServices
 
 class Utils {
     static func className<T>(classType: T) -> String {
-        let fullName: String = NSStringFromClass(classType as! AnyClass)
+        guard let anyClassType = classType as? AnyClass else {
+            return ""
+        }
+        let fullName: String = NSStringFromClass(anyClassType)
         let range = fullName.range(of: ".")
         if let range = range {
             return String(fullName[range.upperBound...])

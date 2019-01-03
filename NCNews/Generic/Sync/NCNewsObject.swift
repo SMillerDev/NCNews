@@ -13,9 +13,6 @@ protocol NCNewsObject {
     /// The title of the object
     var title: String? { get set }
 
-    /// If the data should be sorted by title or date
-    static var dateSorted: Bool { get }
-
     /// The parent entity name
     static var parentName: String? { get }
 

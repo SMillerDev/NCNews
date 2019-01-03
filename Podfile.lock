@@ -1,24 +1,24 @@
 PODS:
-  - Alamofire (4.6.0)
-  - AlamofireImage (3.3.0):
-    - Alamofire (~> 4.5)
-  - AlamofireNetworkActivityIndicator (2.2.0):
-    - Alamofire (~> 4.5)
-  - OAuthSwift (1.2.0)
-  - PromiseKit (6.1.1):
-    - PromiseKit/CorePromise (= 6.1.1)
-    - PromiseKit/Foundation (= 6.1.1)
-    - PromiseKit/UIKit (= 6.1.1)
-  - PromiseKit/Alamofire (6.1.1):
+  - Alamofire (4.8.0)
+  - AlamofireImage (3.5.0):
+    - Alamofire (~> 4.8)
+  - AlamofireNetworkActivityIndicator (2.3.0):
+    - Alamofire (~> 4.7)
+  - OAuthSwift (1.2.2)
+  - PromiseKit (6.7.1):
+    - PromiseKit/CorePromise (= 6.7.1)
+    - PromiseKit/Foundation (= 6.7.1)
+    - PromiseKit/UIKit (= 6.7.1)
+  - PromiseKit/Alamofire (6.7.1):
     - Alamofire (~> 4.0)
     - PromiseKit/CorePromise
-  - PromiseKit/CorePromise (6.1.1)
-  - PromiseKit/Foundation (6.1.1):
+  - PromiseKit/CorePromise (6.7.1)
+  - PromiseKit/Foundation (6.7.1):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.1.1):
+  - PromiseKit/UIKit (6.7.1):
     - PromiseKit/CorePromise
-  - SwiftLint (0.25.0)
-  - TDBadgedCell (5.2.1)
+  - SwiftLint (0.29.2)
+  - TDBadgedCell (5.5.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.6)
@@ -30,15 +30,25 @@ DEPENDENCIES:
   - SwiftLint
   - TDBadgedCell (~> 5.2)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
+    - AlamofireNetworkActivityIndicator
+    - OAuthSwift
+    - PromiseKit
+    - SwiftLint
+    - TDBadgedCell
+
 SPEC CHECKSUMS:
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
-  AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
-  OAuthSwift: 7fd6855b8e4d58eb5a30d156ea9bed7a8aecd1ca
-  PromiseKit: 876f433b87c970f020e04e35dbe68ab21d240498
-  SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
-  TDBadgedCell: c166ffcb0d1f2fce244df8ae5bac23056803217b
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
+  AlamofireNetworkActivityIndicator: 18346ff6d770d9513d0ac6f2d99706f40f93dbaa
+  OAuthSwift: 27b34fe80b76b67cd8f45571e0be2432bc9f6de1
+  PromiseKit: ef376fb8b4e92edfeb66bd403b983eaa07fbde0c
+  SwiftLint: 47df60bdea6e7e902b193b6596db8683aafd86a3
+  TDBadgedCell: 9c651089021510d197f4d2b4892e7ad1f84ff378
 
-PODFILE CHECKSUM: 56ab68fa1301bda74461c133ca028ba2d3fccc8e
+PODFILE CHECKSUM: 500646a23fb8b4f2a9acf7d89c4f25226a22d547
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

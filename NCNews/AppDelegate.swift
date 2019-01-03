@@ -39,9 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
 
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        let viewController = (window?.rootViewController as! UISplitViewController).viewControllers.first as! DetailViewController
-        viewController.restoreUserActivityState(userActivity)
-
+        guard let splitview = window?.rootViewController as? UISplitViewController else {
+            return false
+        }
+        for controller in splitview.viewControllers {
+            if let viewController = controller as? DetailViewController {
+                viewController.restoreUserActivityState(userActivity)
+            }
+        }
         return true
     }
 

@@ -10,7 +10,6 @@ import Foundation
 import CoreData
 
 class Feed: NSManagedObject, NCNewsObject {
-    static var dateSorted: Bool = false
     static var parentName: String? = "Folder"
 
     @NSManaged public var id: Int64

@@ -78,6 +78,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, CanReloadVie
         // Dispose of any resources that can be recreated.
     }
 
+    override func restoreUserActivityState(_ activity: NSUserActivity) {
+        debugPrint(activity)
+    }
+
     func reloadData(_ pull: Bool = true) {
         configureView()
     }

@@ -44,12 +44,12 @@ extension UIColor {
         let gString = cleanHex[2...3]
         let bString = cleanHex[4...5]
 
-        var r: CUnsignedInt = 0, g: CUnsignedInt = 0, b: CUnsignedInt = 0
-        Scanner(string: rString).scanHexInt32(&r)
-        Scanner(string: gString).scanHexInt32(&g)
-        Scanner(string: bString).scanHexInt32(&b)
+        var red: CUnsignedInt = 0, green: CUnsignedInt = 0, blue: CUnsignedInt = 0
+        Scanner(string: rString).scanHexInt32(&red)
+        Scanner(string: gString).scanHexInt32(&green)
+        Scanner(string: bString).scanHexInt32(&blue)
 
-        self.init(red: CGFloat(r)/255.0, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: alpha)
+        self.init(red: CGFloat(red)/255.0, green: CGFloat(green)/255, blue: CGFloat(blue)/255, alpha: alpha)
     }
 }
 
